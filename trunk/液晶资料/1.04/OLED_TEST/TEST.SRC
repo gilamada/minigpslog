@@ -1,0 +1,9 @@
+[Files]
+main.c
+ssd1332.c
+delay.c
+[Headers]
+ssd1332.h
+delay.h
+img.h
+[Documents]

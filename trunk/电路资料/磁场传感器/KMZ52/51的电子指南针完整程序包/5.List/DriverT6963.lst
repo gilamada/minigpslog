@@ -1,0 +1,1033 @@
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 1   
+
+
+C51 COMPILER V8.08, COMPILATION OF MODULE DRIVERT6963
+OBJECT MODULE PLACED IN .\4.Obj\DriverT6963.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE 3.Source\DriverT6963.c BROWSE INCDIR(.\2.Inc) DEBUG OBJECTEXTEND PRINT(.\5.
+                    -List\DriverT6963.lst) OBJECT(.\4.Obj\DriverT6963.obj)
+
+line level    source
+
+   1          /**********************************************************************************************
+   2          ***模块名称： T6963 驱动库                                                                  ***
+   3          ***模块功能：                                                                               ***                                                                                 
+             -                                                                                               
+   4          ***作    者： METAL MAX                                                                     ***
+   5          ***调用方式：                                                                               ***
+   6          ***日    志： 日期        版本    修改人      事件                                          ***
+   7          ***           2007/9/13   V1.00   METAL MAX   搭建程序框架                                  ***
+   8          ***           2007/9/14   V1.01   METAL MAX   具体底层程序添加                              ***
+   9          ***           2007/9/15   V1.02   METAL MAX   具体底层程序添加                              ***
+  10          ***           2007/9/16   V1.03   METAL MAX   具体底层程序添加                              ***
+  11          ***           2008/5/22   V2.0    METAL MAX   将文件合成为一个库文件                        *** 
+  12          ***备    注：                                                                               ***
+  13          **********************************************************************************************/
+  14          #include <intrins.h>
+  15          #include <reg52.h>
+  16          #include <math.h>
+  17          #include "PinDefine.h"                          //端口定义头文件
+  18          #include "DriverT6963.h"                        //T6963驱动库
+  19          
+  20          #define   CursorPointer             0X21                   //设置光标指针   
+  21          #define   OffsetRegister            0X22                   //设置偏移寄存器   
+  22          #define   AddrPointer               0X24                   //设置地址指示器   
+  23           //6963设置控制命令定义   
+  24          #define   TextHomeAddr              0X40                   //设置正文首地址   
+  25          #define   TextArea                  0X41                   //设置正文区域（宽度）   
+  26          #define   GraphicHomeAddr           0X42                   //设置图形首地址   
+  27          #define   GraphicArea               0X43                   //设置图形区域（宽度）   
+  28          //6963模式设置   
+  29          #define   ORModeIn                  0X80                   //设置片内CGROM，为或模式，   
+  30          #define   EXORModeIn                0X81                   //设置片内CGROM，为异或模式，   
+  31          #define   ANDModeIn                 0X83                   //设置片内CGROM，为与模式   
+  32          #define   TextAttributeModeIn       0X84                   //设置片内CGROM，为文本模式 
+  33          #define   ORModeEx                  0X88                   //设置片外CGROM，为或模式，   
+  34          #define   EXORModeEx                0X89                   //设置片外CGROM，为异或模式，   
+  35          #define   ANDModeEx                 0X8B                   //设置片外CGROM，为与模式   
+  36          #define   TextModeEx                0X8C                   //设置片外CGROM，为文本模式   
+  37          //内、外部CGROM设置    
+  38          #define   CGROMIN                   0X98                   //   
+  39          #define   CGROMEX                   0X9C                   //   
+  40          //6963设置显示模式命令定义
+  41          //显示模式控制位定义；
+  42          /**************************************************************************************/
+  43          //      7  6  5  4       3        2       1           0        
+  44          //      1  0  0  1         Graphic  Text    Cursor          CursorBlink
+  45          //            9                 x                 x               x                       x                H
+  46          /**************************************************************************************/
+  47          #define   DisplayOff                0X90                   //显示关   
+  48              
+  49          #define   CursorOnBlinkOff          0X92                   //光标开，闪光关   
+  50          #define   CursorOnBlinkOn           0X93                   //光标开，闪光开   
+  51          #define   TextOnGraphicOff          0X94                   //文本开，图像关   
+  52          #define   TextOffGraphicOn          0X98                   //文本关，图像开   
+  53          #define   TextOnGraphicOn           0X9C                   //文本开，图像开   
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 2   
+
+  54          //6963设置光标式样命令定义   
+  55          #define   CursorL1                  0XA0                   //设置光标一行   
+  56          #define   CursorL2                  0XA1                   //设置光标二行   
+  57          #define   CursorL3                  0XA2                   //设置光标三行   
+  58          #define   CursorL4                  0XA3                   //设置光标四行   
+  59          #define   CursorL5                  0XA4                   //设置光标五行   
+  60          #define   CursorL6                  0XA5                   //设置光标六行   
+  61          #define   CursorL7                  0XA6                   //设置光标七行   
+  62          #define   CursorL8                  0XA7                   //设置光标八行   
+  63          //6963数据自动读写命令定义   
+  64          #define   AutoWrite                 0XB0                   //设置数据自动写   
+  65          #define   AutoRead                  0XB1                   //设置数据自动读   
+  66          #define   AutoReset                 0XB2                   //设置自动复位   
+  67          //6963数据读写命令定义   
+  68          #define   WriteIADP                 0XC0                   //数据自动写，地址自动增加   
+  69          #define   ReadIADP                  0XC1                   //数据自动读，地址自动增加   
+  70          #define   WriteDADP                 0XC2                   //数据自动写，地址自动减少   
+  71          #define   ReadDADP                  0XC3                   //数据自动读，地址自动减少   
+  72          #define   WriteNoADP                0XC4                   //数据自动写，地址不变   
+  73          #define   ReanNoADP                 0XC5                   //数据自动读，地址不变   
+  74          //6963屏幕闪烁命令定义   
+  75          #define   ScreenPeek                0XE0                   //屏幕闪烁   
+  76          //6963屏幕复制命令定义   
+  77          #define   ScreenCopy                0XE4                   //屏幕复制 
+  78          
+  79          /**********************************************************************************************
+  80          **函数名称：LCM内部标志位查询程序组                                                          **
+  81          **函数功能：查询LCM内部运行标志                                                                                                                          **   
+  82          **入口参数：无                                                                                                                                                           **   
+  83          **出口参数：无                                                                               **
+  84          **具体资源：                                                                                 **
+  85          **调用程序：                                                                                 **
+  86          **备注：                                                                                     **
+  87          **********************************************************************************************/ 
+  88          unsigned char GetLCMStatus(void)              //读取状态值
+  89          {
+  90   1         unsigned char temp;
+  91   1         DPORT_LCM = 0XFF;
+  92   1         CD_LCM = 1;
+  93   1         CE_LCM = 0;
+  94   1         WR_LCM = 1;
+  95   1         RD_LCM = 0;
+  96   1         _nop_();
+  97   1         _nop_();
+  98   1         _nop_();
+  99   1         _nop_();
+ 100   1         temp = DPORT_LCM;
+ 101   1         _nop_();
+ 102   1         RD_LCM = 1;
+ 103   1         CE_LCM = 1;
+ 104   1         CD_LCM = 0;
+ 105   1         return(temp);
+ 106   1      }
+ 107          
+ 108          void St01Chk(void)            //判断第0，1位是否为1
+ 109          {
+ 110   1         unsigned char temp;
+ 111   1      
+ 112   1         do
+ 113   1         {
+ 114   2             temp = GetLCMStatus();
+ 115   2         }while((temp & 0x01)&(temp & 0x02));
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 3   
+
+ 116   1      }
+ 117                  
+ 118          void AutoChk(void)             //判断第2位
+ 119          {
+ 120   1          unsigned char temp;
+ 121   1      
+ 122   1         do
+ 123   1         {
+ 124   2             temp = GetLCMStatus();
+ 125   2         }while((temp & 0x04) & (temp &0X08));
+ 126   1      }
+ 127          
+ 128          void St4Chk(void)                       //判断第4位
+ 129          {
+ 130   1          unsigned char temp;
+ 131   1      
+ 132   1         do
+ 133   1         {
+ 134   2             temp = GetLCMStatus();
+ 135   2         }while(temp & 0x10);
+ 136   1      }
+ 137          
+ 138          void St5Chk(void)                       //判断第5位
+ 139          {
+ 140   1          unsigned char temp;
+ 141   1      
+ 142   1         do
+ 143   1         {
+ 144   2             temp = GetLCMStatus();
+ 145   2         }while(temp & 0x20);
+ 146   1      }
+ 147          
+ 148          void St6Chk(void)                  //判断第6位
+ 149          {
+ 150   1          unsigned char temp;
+ 151   1      
+ 152   1         do
+ 153   1         {
+ 154   2             temp = GetLCMStatus();
+ 155   2         }while(temp & 0x40);
+ 156   1      }
+ 157          
+ 158          void St7Chk(void)                  //判断第7位
+ 159          {
+ 160   1          unsigned char temp;
+ 161   1      
+ 162   1         do
+ 163   1         {
+ 164   2             temp = GetLCMStatus();
+ 165   2         }while(temp & 0x80);
+ 166   1      }
+ 167          
+ 168          
+ 169          /**********************************************************************************************
+ 170          **函数名称： void LowWriteCmd(unsigned char CMD)                                             **
+ 171          **函数功能： 完成底层命令写入                                                                **
+ 172          **入口参数：                                                                                 **
+ 173          **出口参数：                                                                                 **
+ 174          **具体资源：                                                                                 **
+ 175          **调用程序：                                                                                 **
+ 176          **备注：                                                                                     **
+ 177          **********************************************************************************************/ 
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 4   
+
+ 178          void LowWriteCmd(unsigned char CMD)
+ 179          {
+ 180   1              St01Chk();
+ 181   1              CD_LCM = 1;
+ 182   1              CE_LCM = 0;
+ 183   1              RD_LCM = 1;
+ 184   1              WR_LCM = 0;
+ 185   1              _nop_();
+ 186   1              DPORT_LCM = CMD;
+ 187   1              _nop_();
+ 188   1              WR_LCM = 1;
+ 189   1              CE_LCM = 1;
+ 190   1              CD_LCM = 0;
+ 191   1      }
+ 192          
+ 193          
+ 194          /**********************************************************************************************
+ 195          **函数名称：                                                                                 **
+ 196          **函数功能：                                                                                 **
+ 197          **入口参数：                                                                                 **
+ 198          **出口参数：                                                                                 **
+ 199          **具体资源：                                                                                 **
+ 200          **调用程序：                                                                                 **
+ 201          **备注：                                                                                     **
+ 202          **********************************************************************************************/  
+ 203          void LowWriteData(unsigned char DAT)
+ 204          {
+ 205   1          St01Chk();
+ 206   1              CD_LCM = 0;
+ 207   1              CE_LCM = 0;
+ 208   1              RD_LCM = 1;
+ 209   1              WR_LCM = 0;
+ 210   1              _nop_();
+ 211   1              DPORT_LCM = DAT;
+ 212   1              _nop_();
+ 213   1              WR_LCM = 1;
+ 214   1              CE_LCM = 1;
+ 215   1              CD_LCM = 0;
+ 216   1      }
+ 217          
+ 218          
+ 219          /**********************************************************************************************
+ 220          **函数名称：                                                                                 **
+ 221          **函数功能：                                                                                 **
+ 222          **入口参数：                                                                                 **
+ 223          **出口参数：                                                                                 **
+ 224          **具体资源：                                                                                 **
+ 225          **调用程序：                                                                                 **
+ 226          **备注：                                                                                     **
+ 227          **********************************************************************************************/ 
+ 228          void WCIntData(unsigned char CMD, unsigned int DAT)
+ 229          {
+ 230   1          unsigned char temp;
+ 231   1      
+ 232   1              temp = DAT;       //lower 8 bits.       
+ 233   1              LowWriteData(temp);
+ 234   1              temp = DAT >> 8;  //uper 8 bits.
+ 235   1              LowWriteData(temp);     
+ 236   1              LowWriteCmd(CMD);
+ 237   1      }
+ 238          
+ 239          /**********************************************************************************************
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 5   
+
+ 240          **函数名称：                                                                                 **
+ 241          **函数功能：                                                                                 **
+ 242          **入口参数：                                                                                 **
+ 243          **出口参数：                                                                                 **
+ 244          **具体资源：                                                                                 **
+ 245          **调用程序：                                                                                 **
+ 246          **备注：                                                                                     **
+ 247          **********************************************************************************************/ 
+ 248          void WCCharData(unsigned char CMD,unsigned char DAT)
+ 249          {
+ 250   1              LowWriteData(DAT);
+ 251   1              LowWriteCmd(CMD);
+ 252   1      }
+ 253          
+ 254          
+ 255          /**********************************************************************************************
+ 256          **函数名称：                                                                                 **
+ 257          **函数功能：                                                                                 **
+ 258          **入口参数：                                                                                 **
+ 259          **出口参数：                                                                                 **
+ 260          **具体资源：                                                                                 **
+ 261          **调用程序：                                                                                 **
+ 262          **备注：                                                                                     **
+ 263          **********************************************************************************************/
+ 264          void WCNoData(unsigned char CMD)
+ 265          {
+ 266   1          LowWriteCmd(CMD);
+ 267   1      }
+ 268          
+ 269          
+ 270          /**********************************************************************************************
+ 271          **函数名称：                                                                                 **
+ 272          **函数功能：                                                                                 **
+ 273          **入口参数：                                                                                 **
+ 274          **出口参数：                                                                                 **
+ 275          **具体资源：                                                                                 **
+ 276          **调用程序：                                                                                 **
+ 277          **备注：                                                                                     **
+ 278          **********************************************************************************************/
+ 279          void WDCharData(unsigned char DAT)
+ 280          {
+ 281   1          LowWriteData(DAT);
+ 282   1      }
+ 283          
+ 284          
+ 285          /**********************************************************************************************
+ 286          **函数名称：                                                                                 **
+ 287          **函数功能：                                                                                 **
+ 288          **入口参数：                                                                                 **
+ 289          **出口参数：                                                                                 **
+ 290          **具体资源：                                                                                 **
+ 291          **调用程序：                                                                                 **
+ 292          **备注：                                                                                     **
+ 293          **********************************************************************************************/ 
+ 294          void LCMReset(void)
+ 295          {
+ 296   1          RST_LCM = 1;
+ 297   1              RST_LCM = 0;
+ 298   1              _nop_();_nop_();_nop_();_nop_(); //Time delay enought for LCM RESET
+ 299   1              _nop_();_nop_();_nop_();_nop_();
+ 300   1              _nop_();_nop_();_nop_();_nop_();
+ 301   1              RST_LCM = 1;
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 6   
+
+ 302   1      }
+ 303          
+ 304          
+ 305          /**********************************************************************************************
+ 306          **函数名称：                                                                                 **
+ 307          **函数功能：                                                                                 **
+ 308          **入口参数：                                                                                 **
+ 309          **出口参数：                                                                                 **
+ 310          **具体资源：                                                                                 **
+ 311          **调用程序：                                                                                 **
+ 312          **备注：                                                                                     **
+ 313          **********************************************************************************************/
+ 314          void FontStyle(unsigned char Style)
+ 315          {
+ 316   1          if(Style == 0xff)
+ 317   1          {
+ 318   2                  FS_LCM = 1;  //Choose 5*8 pixel
+ 319   2              }
+ 320   1              else
+ 321   1          {
+ 322   2                  FS_LCM = 0;  //Choos 8*8 pixel
+ 323   2              }
+ 324   1      }
+ 325          
+ 326          
+ 327          /**********************************************************************************************
+ 328          **函数名称：                                                                                 **
+ 329          **函数功能：                                                                                 **
+ 330          **入口参数：                                                                                 **
+ 331          **出口参数：                                                                                 **
+ 332          **具体资源：                                                                                 **
+ 333          **调用程序：                                                                                 **
+ 334          **备注：                                                                                     **
+ 335          **********************************************************************************************/
+ 336          void ClearScreen(unsigned char Mod)
+ 337          {
+ 338   1              unsigned int Counter = 0x0000;
+ 339   1      
+ 340   1              WCIntData(AddrPointer, 0x0000);                 
+ 341   1              WCNoData(AutoWrite);
+ 342   1      
+ 343   1              for (Counter=0; Counter < 0x2000; Counter++) //擦除8K空间
+ 344   1              {
+ 345   2                      AutoChk();
+ 346   2                      WDCharData(Mod);
+ 347   2              }
+ 348   1              WCNoData(AutoReset);                      
+ 349   1      }
+ 350          
+ 351          
+ 352          /**********************************************************************************************
+ 353          函数名称： void Picture(unsigned int Addr, unsigned char Tier, 
+ 354                                  unsigned char Column, unsigned char *Dat)
+ 355          函数功能： 描图
+ 356          入口参数： 显示区坐标X,Y,图片的长，图片的宽，图片数据首地址
+ 357          出口参数：
+ 358          具体资源：
+ 359          调用程序：
+ 360          备注：    1.由于显示字节的制约且简化显示函数，图片的X坐标只能是以字节的整数倍。
+ 361                    2.图片不能溢出显示屏，以免造成图片回显到显示屏顶部，显示函数没有裁剪图片。
+ 362                              取模图片的时候注意图片的大小。
+ 363          **********************************************************************************************/
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 7   
+
+ 364          void Picture(unsigned char x, unsigned char y, unsigned char Column, unsigned char Tier, unsigned char *Da
+             -t)
+ 365          {
+ 366   1              unsigned char Counter, i, itemp;
+ 367   1          unsigned int  Address, AddrTmp;
+ 368   1      
+ 369   1              itemp = Column/8;
+ 370   1          AddrTmp = x + y*0x14  + 0x0800;  //计算地址
+ 371   1      
+ 372   1              for (Counter = 0x00; Counter < Tier; Counter++)
+ 373   1          {
+ 374   2                  Address = AddrTmp + Counter*0x14;
+ 375   2                      
+ 376   2                      WCIntData(AddrPointer, Address);
+ 377   2                      WCNoData(AutoWrite);
+ 378   2                      AutoChk();
+ 379   2                  for (i = itemp; i > 0; i--)
+ 380   2              {       
+ 381   3                              WDCharData(*(Dat++));
+ 382   3                      }
+ 383   2                      WCNoData(AutoReset);
+ 384   2              }
+ 385   1      }
+ 386          
+ 387          
+ 388          /**********************************************************************************************
+ 389          函数名称：       void WriteCG(unsigned int Address, unsigned char dat)
+ 390          函数功能：       写英文字母
+ 391          入口参数：       地址，和英文字幕的地址，注意这里不是ASIC表内的地址。
+ 392          出口参数：
+ 393          具体资源：
+ 394          调用程序：
+ 395          备注：
+ 396          **********************************************************************************************/
+ 397          void WriteCG(unsigned int Address, unsigned char dat)
+ 398          {
+ 399   1              WCIntData(AddrPointer, Address);          //设置显示地址
+ 400   1              WDCharData(dat);
+ 401   1              WCNoData(WriteNoADP);
+ 402   1      }
+ 403          
+ 404          
+ 405          /**********************************************************************************************
+ 406          函数名称：      void WriteCH(unsigned int Address, unsigned char *temp)
+ 407          函数功能：      写一个汉字（没有采用CGROM的方式，采用直接在图形区域写值）
+ 408          入口参数：      汉字左上角地址，及汉字数组的首地址
+ 409          出口参数：
+ 410          具体资源：
+ 411          调用程序：
+ 412          备注：
+ 413          **********************************************************************************************/ 
+ 414          void WriteCH(unsigned int Address, unsigned char *temp)
+ 415          {
+ 416   1              unsigned char i, j;
+ 417   1      
+ 418   1              for (j=0; j<16; j++)
+ 419   1          {
+ 420   2                      for (i=0; i<2; i++)
+ 421   2              {
+ 422   3                              WriteCG(Address+i, *(temp++));
+ 423   3                      }
+ 424   2                      Address += 0x14;  //这个值和液晶屏点阵有关。
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 8   
+
+ 425   2              }
+ 426   1      }
+ 427          
+ 428          
+ 429          /**********************************************************************************************
+ 430          函数名称：       void InitScreen(void)
+ 431          函数功能：       初始化LCM
+ 432          入口参数：
+ 433          出口参数：
+ 434          具体资源：
+ 435          调用程序：
+ 436          备注：
+ 437          **********************************************************************************************/
+ 438          void InitScreen(void)
+ 439          {
+ 440   1              LCMReset();                              //模块上电复位
+ 441   1              FontStyle(0x00);                                     //8*8点阵
+ 442   1              WCNoData(DisplayOff);                //关显示
+ 443   1      
+ 444   1              WCIntData(TextHomeAddr,0x0000);      //设置文本显示首地址
+ 445   1              WCIntData(TextArea,0x0014);          //设置文本显示宽度
+ 446   1      
+ 447   1              WCIntData(GraphicHomeAddr,0x0800);   //设置图形显示首地址
+ 448   1              WCIntData(GraphicArea,0x0014);       //设置图形显示宽度
+ 449   1      
+ 450   1              WCNoData(ORModeIn);                  //设置文本图形显示为‘ＯＲ’方式
+ 451   1              WCNoData(0x9C);                      //图形开，文本开,光标关
+ 452   1              WCIntData(CursorPointer, 0x011D);    //设置光标初始位置
+ 453   1              WCNoData(CursorL1);
+ 454   1              ClearScreen(0x00);                   //清除所有8K RAM
+ 455   1      }
+ 456          
+ 457          
+ 458          /**********************************************************************************************
+ 459          函数名称：       void EasyCH(unsigned char Tier, unsigned char Column, unsigned char *temp)
+ 460          函数功能：       以行列的形式给出汉字坐标
+ 461          入口参数：       汉字的坐标（行，列） 以及汉字点阵库地址
+ 462          出口参数：
+ 463          具体资源：
+ 464          调用程序：
+ 465          备注：
+ 466          **********************************************************************************************/
+ 467          void EasyCH(unsigned char Tier, unsigned char Column, unsigned char *temp)
+ 468          {
+ 469   1          unsigned char i, j;
+ 470   1              unsigned int  Address;
+ 471   1      
+ 472   1              Address = (Column *0x02) + (Tier * 0xA0) + 0x0800;  //计算地址
+ 473   1              
+ 474   1              for (j=0; j<16; j++)
+ 475   1          {
+ 476   2                      for (i=0; i<2; i++)
+ 477   2              {
+ 478   3                              WriteCG(Address+i, *(temp++));
+ 479   3                      }
+ 480   2                      Address += 0x14;
+ 481   2              }
+ 482   1      }
+ 483          
+ 484          
+ 485          /**********************************************************************************************
+ 486          函数名称：       void BitSet(unsigned char CMD);
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 9   
+
+ 487          函数功能：       置位屏幕上一点
+ 488          入口参数：       该点的字节地址，第几位
+ 489          出口参数：
+ 490          具体资源：
+ 491          调用程序：
+ 492          备注：
+ 493          **********************************************************************************************/
+ 494          void BitSet(unsigned int Address, unsigned char BIT)
+ 495          {
+ 496   1          BIT = 0XF8 + BIT;
+ 497   1          WCIntData(AddrPointer,Address);
+ 498   1              WCNoData(BIT);
+ 499   1      }
+ 500          
+ 501          
+ 502          /**********************************************************************************************
+ 503          函数名称：      void BitReset(unsigned int Address, unsigned char BIT)
+ 504          函数功能：      清除屏幕上的一点
+ 505          入口参数：      该点的字节地址，第几位
+ 506          出口参数：
+ 507          具体资源：
+ 508          调用程序：
+ 509          备注：
+ 510          **********************************************************************************************/
+ 511          void BitReset(unsigned int Address, unsigned int BIT)
+ 512          {
+ 513   1          BIT = 0XF0 + BIT;
+ 514   1          WCIntData(AddrPointer,Address);
+ 515   1              WCNoData(BIT);
+ 516   1      }
+ 517          
+ 518          
+ 519          
+ 520          /**********************************************************************************************
+ 521          函数名称：      WriteEN(unsigned int Address, unsigned char Dat)
+ 522          函数功能：      写一个英文字符
+ 523          入口参数：      屏幕地址和要写入的字符
+ 524          出口参数：
+ 525          具体资源：
+ 526          调用程序：
+ 527          备注：
+ 528          **********************************************************************************************/
+ 529          void WriteEN(unsigned int Address, unsigned char Dat)
+ 530          {
+ 531   1          Dat = Dat - 0x20;
+ 532   1          WriteCG(Address, Dat);
+ 533   1      }
+ 534          
+ 535          
+ 536          /**********************************************************************************************
+ 537          函数名称：      DispStr(unsigned char *str)
+ 538          函数功能：      写一个字符串
+ 539          入口参数：      屏幕地址和要写入的字符串首地址
+ 540          出口参数：
+ 541          具体资源：
+ 542          调用程序：
+ 543          备注：
+ 544          **********************************************************************************************/
+ 545          void DispStr(unsigned int StrtAddr, unsigned char *str)
+ 546          {
+ 547   1          unsigned int lCnt = 0;
+ 548   1      
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 10  
+
+ 549   1          do {
+ 550   2              WriteEN(StrtAddr+lCnt, str[lCnt]);
+ 551   2              lCnt++;
+ 552   2          }while(str[lCnt] != '\0');
+ 553   1      }
+ 554          
+ 555          /**********************************************************************************************
+ 556          函数名称：      void DrawPoint(unsgined char Y, unsigned char X)
+ 557          函数功能：      在屏幕的任何位置画一个点
+ 558          入口参数：      该点的横坐标和纵坐标（屏幕的左上角坐标为（0，0））横向为X轴，纵向为Y轴
+ 559          出口参数：
+ 560          具体资源：
+ 561          调用程序：
+ 562          备注：           
+ 563          **********************************************************************************************/
+ 564          void Point(unsigned int Xp, unsigned int Yp, unsigned char Mod)
+ 565          {
+ 566   1         unsigned int ColumnTmp;
+ 567   1         unsigned int TireTmp;
+ 568   1         unsigned int Address;
+ 569   1         unsigned int BIT;
+ 570   1         unsigned int Suplus;
+ 571   1         unsigned char BITmp;
+ 572   1      
+ 573   1         TireTmp = Yp * 0X14;
+ 574   1         ColumnTmp = Xp / 8;
+ 575   1         Suplus = Xp % 8;
+ 576   1         BIT = 7 - Suplus;
+ 577   1         BITmp = BIT; 
+ 578   1         Address = TireTmp + ColumnTmp +0X0800;
+ 579   1         if (Mod){
+ 580   2              BitSet(Address, BITmp);
+ 581   2         }else{
+ 582   2                      BitReset(Address, BITmp);
+ 583   2         }
+ 584   1      }
+ 585          
+ 586          
+ 587          /**********************************************************************************************
+ 588          函数名称：  void Line(unsigned char x1, unsigned char y1, unsigned char x2, unsigned char y2)   
+ 589          函数功能：       画直线函数
+ 590          入口参数：       直线两端点坐标
+ 591          出口参数：
+ 592          具体资源：
+ 593          调用程序：
+ 594          备注：           采用BRESENHAM AL算法
+ 595          **********************************************************************************************/
+ 596          void Line(int x1, int y1, int x2, int y2, unsigned char Mod)
+ 597          {
+ 598   1          int dx, dy, d, incE, incNE, x, y, slope, temp;
+ 599   1              int Ymin, Xmin;
+ 600   1              unsigned char DrawFlag = 0x01; 
+ 601   1      /****************垂直线**********************************************/
+ 602   1              if (x1 == x2)
+ 603   1          {                                                  
+ 604   2                  if (y1 <= y2) {
+ 605   3                          temp = y2 - y1;
+ 606   3                              Ymin = y1;                         
+ 607   3                      }else {
+ 608   3                          temp = y1 - y2;
+ 609   3                              Ymin = y2;
+ 610   3                      }
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 11  
+
+ 611   2                  for (; temp >= 0; temp--) {
+ 612   3                          if (Mod == 1) {                                                     //判定是否是要画虚线
+ 613   4                                  if (DrawFlag == 0x01) {
+ 614   5                                  Point(x1, Ymin+temp, 1);
+ 615   5                                          DrawFlag = 0x00;
+ 616   5                                      }else {
+ 617   5                                          Point(x1, Ymin+temp, 0);
+ 618   5                                          DrawFlag = 0x01;
+ 619   5                                      }
+ 620   4                              }else {
+ 621   4                                 Point(x1, Ymin+temp,1);
+ 622   4                              }     
+ 623   3                      }
+ 624   2              }
+ 625   1      /********************************水平线*******************************/
+ 626   1              else if (y1 == y2 )
+ 627   1          {                                      
+ 628   2                       if (x1 <= x2)
+ 629   2                   {
+ 630   3                                   temp = x2 - x1;
+ 631   3                                       Xmin = x1;
+ 632   3                               }
+ 633   2                               else
+ 634   2                   {
+ 635   3                                   temp = x1 - x2;
+ 636   3                       Xmin = x2;
+ 637   3                               }
+ 638   2                               for (; temp > 0; temp--)
+ 639   2                   {
+ 640   3                                   if (Mod == 1) 
+ 641   3                       {                                         //判定是否是要画虚线
+ 642   4                                       if (DrawFlag == 0x01)
+ 643   4                           {
+ 644   5                                       Point(Xmin+temp, y1, 1);
+ 645   5                                               DrawFlag = 0x00;
+ 646   5                                           }
+ 647   4                                           else
+ 648   4                           {
+ 649   5                                               Point(Xmin+temp, y1, 0);
+ 650   5                                               DrawFlag = 0x01;
+ 651   5                                           }
+ 652   4                                   }
+ 653   3                                       else
+ 654   3                       {
+ 655   4                                       Point(Xmin+temp, y1, 1);                        
+ 656   4                                   }
+ 657   3                       }
+ 658   2               }
+ 659   1      /*******************************斜线******************************/
+ 660   1      
+ 661   1               else{
+ 662   2                   if (abs(x2-x1) > abs(y2-y1)){
+ 663   3                              if (x2 <= x1)
+ 664   3                  {                       //调整坐标，使其满足x1 <= x2( 从左到右的顺序)
+ 665   4                                      temp =x1;
+ 666   4                                      x1 =x2;
+ 667   4                                      x2 = temp;
+ 668   4                                  temp =y1;
+ 669   4                                       y1 =y2;
+ 670   4                                       y2 = temp;
+ 671   4                               }
+ 672   3      
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 12  
+
+ 673   3                               dx = x2 - x1;
+ 674   3                               dy = y2 - y1;
+ 675   3      
+ 676   3                       if (dy < 0) {                      //用斜率来确定增量
+ 677   4                                  slope = -1;
+ 678   4                                  dy = -dy;
+ 679   4                               }else {
+ 680   4                                       slope = 1;
+ 681   4                               }
+ 682   3      /****************算法公式**********************/                                                            
+ 683   3                               incE  = 2*dy;          //东边一点 
+ 684   3                               incNE = 2*dy - 2*dx;   //东北一点
+ 685   3                               d = 2*dy - dx;             //增量
+ 686   3      /**********************************************/
+ 687   3                               y =y1;
+ 688   3                                                          
+ 689   3                               for (x=x1; x <= x2; x++) {
+ 690   4                                   if (Mod == 1) {                                   //判定是否是要画虚线
+ 691   5                                      if (DrawFlag == 0x01) {
+ 692   6                                                  Point(x, y, 1);
+ 693   6                                                      DrawFlag = 0x00;
+ 694   6                                              }else {
+ 695   6                                                  Point(x, y, 0);
+ 696   6                                                  DrawFlag = 0x01;
+ 697   6                                              }
+ 698   5                                       }else {
+ 699   5                                               Point(x, y, 1);                         
+ 700   5                                       }
+ 701   4                                       if (d < 0)     {         //往东走一步
+ 702   5                                               d += incE;
+ 703   5                                       }else {
+ 704   5                                               d += incNE;  //向东北走一步
+ 705   5                                               y += slope;
+ 706   5                                       }
+ 707   4                               }
+ 708   3                       }else {                     //end of if(abs(dx)>abs(dy))
+ 709   3                               if (y2 <= y1) {          //调整坐标，使其满足y1 <= y2( 从左到右的顺序)
+ 710   4                                  temp = x1;
+ 711   4                                      x1 = x2;
+ 712   4                                      x2 = temp;
+ 713   4                              
+ 714   4                                      temp = y1;
+ 715   4                                      y1 = y2;
+ 716   4                                      y2 = temp;
+ 717   4                               }
+ 718   3      
+ 719   3                               dx = x2 - x1;
+ 720   3                               dy = y2 - y1;
+ 721   3      
+ 722   3                               if (dx < 0) { 
+ 723   4                                  slope = -1;  
+ 724   4                                      dx = -dx;
+ 725   4                               }else {
+ 726   4                                       slope = 1;
+ 727   4                               }
+ 728   3      
+ 729   3                           incE  = 2*dx;
+ 730   3                               incNE = 2*dx - 2*dy;
+ 731   3                               d = 2*dx - dy;
+ 732   3                               x = x1;
+ 733   3      
+ 734   3                               for (y=y1; y <= y2; y++) {
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 13  
+
+ 735   4                                       if (Mod == 1) {                                       //判定是否是要画虚线
+ 736   5                                              if (DrawFlag == 0x01) {
+ 737   6                                                  Point(x, y, 1);
+ 738   6                                                      DrawFlag = 0x00;
+ 739   6                                              }else {
+ 740   6                                                      Point(x, y, 0);
+ 741   6                                                      DrawFlag = 0x01;
+ 742   6                                              }
+ 743   5                                      }else {
+ 744   5                                              Point(x, y, 1);                  
+ 745   5                                      }
+ 746   4                                      if (d < 0) {
+ 747   5                                              d += incE;
+ 748   5                                      }else {
+ 749   5                                              d += incNE;
+ 750   5                                              x += slope;
+ 751   5                                      }
+ 752   4                              }//end of for (y=y1; y <= y2; y++)
+ 753   3                       }
+ 754   2                 }//end of /line
+ 755   1      }
+ 756          
+ 757          
+ 758          /**********************************************************************************************
+ 759          函数名称：  void LineClr(unsigned char x1, unsigned char y1, unsigned char x2, unsigned char y2)        
+ 760          函数功能：       画直线函数
+ 761          入口参数：       直线两端点坐标
+ 762          出口参数：
+ 763          具体资源：
+ 764          调用程序：
+ 765          备注：           采用BRESENHAM AL算法
+ 766          **********************************************************************************************/
+ 767          void LineClr(int x1, int y1, int x2, int y2)
+ 768          {
+ 769   1          int dx, dy, d, incE, incNE, x, y, slope, temp;
+ 770   1              int Ymin, Xmin;
+ 771   1      /****************垂直线**********************************************/
+ 772   1              if (x1 == x2)
+ 773   1          {                                                  
+ 774   2                  if (y1 <= y2) {
+ 775   3                          temp = y2 - y1;
+ 776   3                              Ymin = y1;                         
+ 777   3                      }else {
+ 778   3                          temp = y1 - y2;
+ 779   3                              Ymin = y2;
+ 780   3                      }
+ 781   2                  for (; temp >= 0; temp--) {
+ 782   3                                 Point(x1, Ymin+temp,0);
+ 783   3                      }
+ 784   2              }
+ 785   1      /********************************水平线*******************************/
+ 786   1              else if (y1 == y2 )
+ 787   1          {                                      
+ 788   2                       if (x1 <= x2)
+ 789   2                   {
+ 790   3                                   temp = x2 - x1;
+ 791   3                                       Xmin = x1;
+ 792   3                               }
+ 793   2                               else
+ 794   2                   {
+ 795   3                                   temp = x1 - x2;
+ 796   3                       Xmin = x2;
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 14  
+
+ 797   3                               }
+ 798   2                               for (; temp > 0; temp--)
+ 799   2                   {
+ 800   3                                    Point(Xmin+temp, y1, 0);                   
+ 801   3                       }
+ 802   2               }
+ 803   1      /*******************************斜线******************************/
+ 804   1      
+ 805   1               else{
+ 806   2                   if (abs(x2-x1) > abs(y2-y1)){
+ 807   3                              if (x2 <= x1)
+ 808   3                  {                       //调整坐标，使其满足x1 <= x2( 从左到右的顺序)
+ 809   4                                      temp =x1;
+ 810   4                                      x1 =x2;
+ 811   4                                      x2 = temp;
+ 812   4                                  temp =y1;
+ 813   4                                       y1 =y2;
+ 814   4                                       y2 = temp;
+ 815   4                               }
+ 816   3      
+ 817   3                               dx = x2 - x1;
+ 818   3                               dy = y2 - y1;
+ 819   3      
+ 820   3                       if (dy < 0) {                      //用斜率来确定增量
+ 821   4                                  slope = -1;
+ 822   4                                  dy = -dy;
+ 823   4                               }else {
+ 824   4                                       slope = 1;
+ 825   4                               }
+ 826   3      /****************算法公式**********************/                                                            
+ 827   3                               incE  = 2*dy;          //东边一点 
+ 828   3                               incNE = 2*dy - 2*dx;   //东北一点
+ 829   3                               d = 2*dy - dx;             //增量
+ 830   3      /**********************************************/
+ 831   3                               y =y1;
+ 832   3                                                          
+ 833   3                               for (x=x1; x <= x2; x++) {
+ 834   4                                       Point(x, y, 0);                         
+ 835   4                                       if (d < 0)     {         //往东走一步
+ 836   5                                               d += incE;
+ 837   5                                       }else {
+ 838   5                                               d += incNE;  //向东北走一步
+ 839   5                                               y += slope;
+ 840   5                                       }
+ 841   4                               }
+ 842   3                       }else {                     //end of if(abs(dx)>abs(dy))
+ 843   3                               if (y2 <= y1) {          //调整坐标，使其满足y1 <= y2( 从左到右的顺序)
+ 844   4                                  temp = x1;
+ 845   4                                      x1 = x2;
+ 846   4                                      x2 = temp;
+ 847   4                              
+ 848   4                                      temp = y1;
+ 849   4                                      y1 = y2;
+ 850   4                                      y2 = temp;
+ 851   4                               }
+ 852   3      
+ 853   3                               dx = x2 - x1;
+ 854   3                               dy = y2 - y1;
+ 855   3      
+ 856   3                               if (dx < 0) { 
+ 857   4                                  slope = -1;  
+ 858   4                                      dx = -dx;
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 15  
+
+ 859   4                               }else {
+ 860   4                                       slope = 1;
+ 861   4                               }
+ 862   3      
+ 863   3                           incE  = 2*dx;
+ 864   3                               incNE = 2*dx - 2*dy;
+ 865   3                               d = 2*dx - dy;
+ 866   3                               x = x1;
+ 867   3      
+ 868   3                               for (y=y1; y <= y2; y++) {
+ 869   4                                      Point(x, y, 0);                  
+ 870   4                                      if (d < 0) {
+ 871   5                                              d += incE;
+ 872   5                                      }else {
+ 873   5                                              d += incNE;
+ 874   5                                              x += slope;
+ 875   5                                      }
+ 876   4                              }//end of for (y=y1; y <= y2; y++)
+ 877   3                       }
+ 878   2                 }//end of /line
+ 879   1      }
+ 880          
+ 881          /**********************************************************************************************
+ 882          函数名称：      void Rectangle(unsigned char Topx, unsigned char Topy, 
+ 883                      unsigned char Bottomx, unsigned char Bottomy, unsigned char Mod)
+ 884          函数功能：      画矩形或是填充矩形
+ 885          入口参数：      （左上顶点、右下顶点坐标、是否填充标志）  
+ 886          出口参数：
+ 887          具体资源：
+ 888          调用程序：
+ 889          备注：           当填充标志位为0是表示画矩形框，不为0时表示填充矩形
+ 890          **********************************************************************************************/
+ 891          void Rectangle(unsigned char Topx, unsigned char Topy, unsigned char Bottomx, unsigned char Bottomy, unsig
+             -ned char Mod)
+ 892          {
+ 893   1              unsigned char Xtemp=0x00, i=0x00, Ytemp=0x00, j=0x00;
+ 894   1      
+ 895   1              if (Mod == 0x00)
+ 896   1          {                                                                                 //画矩形边框
+ 897   2                  Line(Topx, Topy, Topx, Bottomy, 0);           // A   -----C------
+ 898   2                  Line(Bottomx, Topy, Bottomx, Bottomy, 0);     // B  |                        |
+ 899   2                  Line(Topx, Topy, Bottomx-1, Topy, 0);             // C      A                        B
+ 900   2                  Line(Topx, Bottomy, Bottomx-1, Bottomy, 0);   // D  |                        |
+ 901   2          }                                                                                             //     -----D------
+ 902   1              else
+ 903   1          {                                                                                         //填充矩形区域
+ 904   2                  Xtemp = Bottomx - Topx;
+ 905   2                      Ytemp = Bottomy - Topy;                                                                                    
+ 906   2                  for (; i<=Ytemp; i++)
+ 907   2              {
+ 908   3                          for (;j <= Xtemp; j++)
+ 909   3                  {
+ 910   4                                  Point(Topx+j, Topy+i, 1);
+ 911   4                              }
+ 912   3                              j = 0;
+ 913   3                      }    
+ 914   2              }//end of else                                                                                             
+ 915   1      }
+ 916          
+ 917          
+ 918          /**********************************************************************************************
+ 919          函数名称：  void DrawCircle( char x0, char y0, char Rand)       
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 16  
+
+ 920          函数功能：  以指定的圆心和半径画圆      
+ 921          入口参数：      圆心、半径
+ 922          出口参数：
+ 923          具体资源：
+ 924          调用程序：
+ 925          备注：     1.本画圆函数采用的正负画圆算法 + 8分圆做图。 
+ 926                     2.注意本画圆函数没有考虑半径过大导致图形区域溢出的情况。经测试圆的半径最好不要大于60
+ 927                               像素。 
+ 928          **********************************************************************************************/
+ 929          void Circle( unsigned int x0, unsigned int y0, unsigned char Rand)
+ 930          {
+ 931   1         unsigned int x = 0, y = Rand;
+ 932   1         int f = 0;
+ 933   1      
+ 934   1         while (x <= y)
+ 935   1         {
+ 936   2      
+ 937   2            Point(x0+x, y0+y, 1);
+ 938   2            Point(x0+x, y0-y, 1);
+ 939   2            Point(x0-x, y0+y, 1);
+ 940   2            Point(x0-x, y0-y, 1);
+ 941   2            Point(x0+y, y0+x, 1);
+ 942   2            Point(x0+y, y0-x, 1);
+ 943   2            Point(x0-y, y0+x, 1);
+ 944   2            Point(x0-y, y0-x, 1);
+ 945   2      
+ 946   2            if (f <= 0) {
+ 947   3               f = f+2*x+1;
+ 948   3                       x++;
+ 949   3                } else {
+ 950   3                   f = f-2*y+1;
+ 951   3                       y--;
+ 952   3                }
+ 953   2         }
+ 954   1      }
+ 955          
+ 956          
+ 957          /**********************************************************************************************
+ 958          函数名称：  void DrawCircle( char x0, char y0, char Rand)       
+ 959          函数功能：  以指定的圆心和半径画圆      
+ 960          入口参数：      圆心、半径
+ 961          出口参数：
+ 962          具体资源：
+ 963          调用程序：
+ 964          备注：     1.本画圆函数采用的正负画圆算法 + 8分圆做图。 
+ 965                     2.注意本画圆函数没有考虑半径过大导致图形区域溢出的情况。经测试圆的半径最好不要大于60
+ 966                               像素。 
+ 967          **********************************************************************************************/
+ 968          void Triangle(unsigned char x1, unsigned char y1, unsigned char x2, unsigned char y2, unsigned char x3, un
+             -signed char y3)
+ 969          {
+ 970   1          Line(x1, y1, x2, y2, 0);
+ 971   1              Line(x2, y2, x3, y3, 0);
+ 972   1              Line(x3, y3, x1, y1, 0);
+ 973   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   3203    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V8.08   DRIVERT6963                                                           06/18/2008 01:56:31 PAGE 17  
+
+   DATA SIZE        =   ----     123
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

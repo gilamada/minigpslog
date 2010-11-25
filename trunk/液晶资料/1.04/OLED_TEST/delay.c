@@ -1,0 +1,44 @@
+#include "delay.h"
+
+void delay_1ms(void)//1msÑÓÊ±º¯Êý
+{
+    unsigned int i;
+  
+    asm("nop");
+    for(i=0;i<1139;i++)
+    {  
+    } 
+}
+
+void delay_nms(unsigned int n)//ÑÓÊ±nºÁÃë
+{
+    unsigned int i;
+    
+    for(i=0;i<n;i++)//Ö´ÐÐn´Î1ºÁÃëÑÓÊ±
+    {
+        delay_1ms(); 
+    }
+}
+
+void delay_nus(unsigned int n)//ÑÓÊ±NÎ¢Ãë,N>=5  ¾§Õñ:8MHz
+{
+    unsigned int i;
+    
+    for(i=5;i<n;i++)
+    {
+        asm("nop");
+        asm("nop");	 
+    } 
+}
+
+void delay_1us(void)
+{
+  asm("nop");
+  asm("nop");
+  asm("nop");
+  asm("nop");
+  asm("nop");
+  asm("nop");
+  asm("nop");
+  asm("nop");
+}

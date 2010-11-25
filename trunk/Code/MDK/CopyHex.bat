@@ -1,0 +1,1 @@
+move obj\*.hex .\

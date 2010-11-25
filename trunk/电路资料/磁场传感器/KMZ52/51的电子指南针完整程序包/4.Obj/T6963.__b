@@ -1,0 +1,4 @@
+TRANSFER
+".\4.Obj\DriverT6963.obj",
+".\4.Obj\main.obj" 
+TO ".\4.Obj\T6963.LIB"

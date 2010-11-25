@@ -1,0 +1,7 @@
+".\4.Obj\UART.obj",
+".\3.Source\IICDRV_MO.LIB",
+".\3.Source\PCF8583_MO.LIB",
+".\3.Source\T6963DRV_MO.LIB",
+".\4.Obj\main.obj" 
+TO ".\4.Obj\T6963" 
+PRINT(".\5.List\T6963.m51") RAMSIZE(256) 
