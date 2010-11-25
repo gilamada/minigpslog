@@ -1,0 +1,35 @@
+*** Creating Trace Output File '.\Obj\project.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\obj\main.o"'
+### List of Objects: adding '".\obj\stm32f10x_it.o"'
+### List of Objects: adding '".\obj\cortexm3_macro.o"'
+### List of Objects: adding '".\obj\stm32f10x_vector.o"'
+### List of Objects: adding '".\obj\stm32f10x_dbgmcu.o"'
+### List of Objects: adding '".\obj\stm32f10x_exti.o"'
+### List of Objects: adding '".\obj\stm32f10x_flash.o"'
+### List of Objects: adding '".\obj\stm32f10x_fsmc.o"'
+### List of Objects: adding '".\obj\stm32f10x_gpio.o"'
+### List of Objects: adding '".\obj\stm32f10x_lib.o"'
+### List of Objects: adding '".\obj\stm32f10x_nvic.o"'
+### List of Objects: adding '".\obj\stm32f10x_rcc.o"'
+### List of Objects: adding '".\obj\stm32f10x_sdio.o"'
+### List of Objects: adding '".\obj\stm32f10x_spi.o"'
+### List of Objects: adding '".\obj\stm32f10x_systick.o"'
+### List of Objects: adding '".\obj\stm32f10x_tim.o"'
+### List of Objects: adding '".\obj\stm32f10x_usart.o"'
+### ADS-LD Command completed:
+--device DARMSTM ".\obj\main.o" ".\obj\stm32f10x_it.o" ".\obj\cortexm3_macro.o" ".\obj\stm32f10x_vector.o" ".\obj\stm32f10x_dbgmcu.o" ".\obj\stm32f10x_exti.o" ".\obj\stm32f10x_flash.o" ".\obj\stm32f10x_fsmc.o" ".\obj\stm32f10x_gpio.o" ".\obj\stm32f10x_lib.o" ".\obj\stm32f10x_nvic.o" ".\obj\stm32f10x_rcc.o" ".\obj\stm32f10x_sdio.o" ".\obj\stm32f10x_spi.o" ".\obj\stm32f10x_systick.o" ".\obj\stm32f10x_tim.o" ".\obj\stm32f10x_usart.o" --strict --scatter ".\Obj\project.sct" 
+--autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Obj\project.map" -o ".\Obj\project.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Obj\project.axf'
+### ADS-LD Command File: '.\Obj\project.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Obj\project.lnp', Handle=0x000002B4
+### Writing '.lnp' file
+### ADS-LD Command file '.\Obj\project.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

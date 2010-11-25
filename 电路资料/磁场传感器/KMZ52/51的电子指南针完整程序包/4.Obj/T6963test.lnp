@@ -1,0 +1,4 @@
+".\4.Obj\DriverT6963.obj",
+".\4.Obj\main.obj" 
+TO ".\4.Obj\T6963test" 
+PRINT(".\5.List\T6963test.m51") RAMSIZE(256) 

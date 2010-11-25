@@ -1,0 +1,700 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Compass1.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Compass1.ico"
+IDR_COMPASTYPE          ICON    DISCARDABLE     "res\\Compass1Doc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Compass1...",          ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Compass1"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Compass1 Version 1.0",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2005",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_COMPASS1_FORM DIALOG DISCARDABLE  0, 0, 624, 438
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "START",IDC_START,370,419,29,14
+    PUSHBUTTON      "STOP",IDC_STOP,447,419,25,14
+    EDITTEXT        IDC_EDIT_COMPASS1XIN,405,21,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1YIN,405,39,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1XREF,405,57,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1YREF,405,74,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1X,405,93,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1Y,405,111,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1Z,405,129,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1ARAD,405,146,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1ADEG,405,165,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1XERR,405,183,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1YERR,405,201,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1ZERR,405,218,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1ERR,405,237,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1XMAX,405,255,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1YMAX,405,273,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1ZMAX,405,290,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1XMIN,405,309,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1YMIN,405,327,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS1ZMIN,405,345,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Xin",IDC_STATIC,384,23,11,8
+    LTEXT           "Yin",IDC_STATIC,384,41,11,8
+    LTEXT           "Xref",IDC_STATIC,384,60,14,8
+    LTEXT           "Yref",IDC_STATIC,384,76,14,8
+    LTEXT           "X",IDC_STATIC,384,96,8,8
+    LTEXT           "Y",IDC_STATIC,384,113,8,8
+    LTEXT           "Z",IDC_STATIC,384,133,8,8
+    LTEXT           "Arad",IDC_STATIC,384,148,16,8
+    LTEXT           "Adeg",IDC_STATIC,384,168,18,8
+    LTEXT           "Xerr",IDC_STATIC,384,186,14,8
+    LTEXT           "Yerr",IDC_STATIC,384,205,14,8
+    LTEXT           "Zerr",IDC_STATIC,384,222,14,8
+    LTEXT           "Err",IDC_STATIC,384,241,10,8
+    LTEXT           "Xmax",IDC_STATIC,384,258,18,8
+    LTEXT           "Ymax",IDC_STATIC,384,276,18,8
+    LTEXT           "Zmax",IDC_STATIC,384,294,18,8
+    LTEXT           "Xmin",IDC_STATIC,384,313,16,8
+    LTEXT           "Ymin",IDC_STATIC,384,330,16,8
+    LTEXT           "Zmin",IDC_STATIC,384,348,16,8
+    GROUPBOX        "COMPASS#1",IDC_STATIC,380,7,55,388
+    EDITTEXT        IDC_EDIT_COMPASS2XIN,464,21,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2YIN,464,39,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2XREF,464,57,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2YREF,464,74,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2X,464,93,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2Y,464,111,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2Z,464,129,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2ARAD,464,146,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2ADEG,464,165,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2XERR,464,183,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2YERR,464,201,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2ZERR,464,218,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2ERR,464,237,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2XMAX,464,255,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2YMAX,464,273,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2ZMAX,464,290,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2XMIN,464,309,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2YMIN,464,327,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS2ZMIN,464,345,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Xin",IDC_STATIC,443,23,11,8
+    LTEXT           "Yin",IDC_STATIC,443,41,11,8
+    LTEXT           "Xref",IDC_STATIC,443,60,14,8
+    LTEXT           "Yref",IDC_STATIC,443,76,14,8
+    LTEXT           "X",IDC_STATIC,443,96,8,8
+    LTEXT           "Y",IDC_STATIC,443,113,8,8
+    LTEXT           "Z",IDC_STATIC,443,133,8,8
+    LTEXT           "Arad",IDC_STATIC,443,148,16,8
+    LTEXT           "Adeg",IDC_STATIC,443,168,18,8
+    LTEXT           "Xerr",IDC_STATIC,443,186,14,8
+    LTEXT           "Yerr",IDC_STATIC,443,205,14,8
+    LTEXT           "Zerr",IDC_STATIC,443,222,14,8
+    LTEXT           "Err",IDC_STATIC,443,241,10,8
+    LTEXT           "Xmax",IDC_STATIC,443,258,18,8
+    LTEXT           "Ymax",IDC_STATIC,443,276,18,8
+    LTEXT           "Zmax",IDC_STATIC,443,294,18,8
+    LTEXT           "Xmin",IDC_STATIC,443,313,16,8
+    LTEXT           "Ymin",IDC_STATIC,443,330,16,8
+    LTEXT           "Zmin",IDC_STATIC,443,348,16,8
+    GROUPBOX        "COMPASS#2",IDC_STATIC,439,7,55,388
+    EDITTEXT        IDC_EDIT_COMPASS3XIN,523,21,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3YIN,523,39,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3XREF,523,57,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3YREF,523,74,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3X,523,93,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3Y,523,111,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3Z,523,129,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3ARAD,523,146,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3ADEG,523,165,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3XERR,523,183,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3YERR,523,201,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3ZERR,523,218,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3ERR,523,237,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3XMAX,523,255,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3YMAX,523,273,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3ZMAX,523,290,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3XMIN,523,309,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3YMIN,523,327,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS3ZMIN,523,345,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Xin",IDC_STATIC,502,23,11,8
+    LTEXT           "Yin",IDC_STATIC,502,41,11,8
+    LTEXT           "Xref",IDC_STATIC,502,60,14,8
+    LTEXT           "Yref",IDC_STATIC,502,76,14,8
+    LTEXT           "X",IDC_STATIC,502,96,8,8
+    LTEXT           "Y",IDC_STATIC,502,113,8,8
+    LTEXT           "Z",IDC_STATIC,502,133,8,8
+    LTEXT           "Arad",IDC_STATIC,502,148,16,8
+    LTEXT           "Adeg",IDC_STATIC,502,168,18,8
+    LTEXT           "Xerr",IDC_STATIC,502,186,14,8
+    LTEXT           "Yerr",IDC_STATIC,502,205,14,8
+    LTEXT           "Zerr",IDC_STATIC,502,222,14,8
+    LTEXT           "Err",IDC_STATIC,502,241,10,8
+    LTEXT           "Xmax",IDC_STATIC,502,258,18,8
+    LTEXT           "Ymax",IDC_STATIC,502,276,18,8
+    LTEXT           "Zmax",IDC_STATIC,502,294,18,8
+    LTEXT           "Xmin",IDC_STATIC,502,313,16,8
+    LTEXT           "Ymin",IDC_STATIC,502,330,16,8
+    LTEXT           "Zmin",IDC_STATIC,502,348,16,8
+    GROUPBOX        "COMPASS#3",IDC_STATIC,498,7,55,388
+    EDITTEXT        IDC_EDIT_COMPASS4XIN,581,21,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4YIN,581,39,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4XREF,581,57,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4YREF,581,74,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4X,581,93,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4Y,581,111,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4Z,581,129,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4ARAD,581,146,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4ADEG,581,165,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4XERR,581,183,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4YERR,581,201,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4ZERR,581,218,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4ERR,581,237,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4XMAX,581,255,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4YMAX,581,273,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4ZMAX,581,290,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4XMIN,581,309,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4YMIN,581,327,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COMPASS4ZMIN,581,345,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Xin",IDC_STATIC,561,23,11,8
+    LTEXT           "Yin",IDC_STATIC,561,41,11,8
+    LTEXT           "Xref",IDC_STATIC,561,60,14,8
+    LTEXT           "Yref",IDC_STATIC,561,76,14,8
+    LTEXT           "X",IDC_STATIC,561,96,8,8
+    LTEXT           "Y",IDC_STATIC,561,113,8,8
+    LTEXT           "Z",IDC_STATIC,561,133,8,8
+    LTEXT           "Arad",IDC_STATIC,561,148,16,8
+    LTEXT           "Adeg",IDC_STATIC,561,168,18,8
+    LTEXT           "Xerr",IDC_STATIC,561,186,14,8
+    LTEXT           "Yerr",IDC_STATIC,561,205,14,8
+    LTEXT           "Zerr",IDC_STATIC,561,222,14,8
+    LTEXT           "Err",IDC_STATIC,561,241,10,8
+    LTEXT           "Xmax",IDC_STATIC,561,258,18,8
+    LTEXT           "Ymax",IDC_STATIC,561,276,18,8
+    LTEXT           "Zmax",IDC_STATIC,561,294,18,8
+    LTEXT           "Xmin",IDC_STATIC,561,313,16,8
+    LTEXT           "Ymin",IDC_STATIC,561,330,16,8
+    LTEXT           "Zmin",IDC_STATIC,561,348,16,8
+    GROUPBOX        "COMPASS#4",IDC_STATIC,557,7,55,388
+    CONTROL         "ENABLE#1",IDC_CHECK_COMPASS1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,382,402,47,10
+    CONTROL         "ENABLE#2",IDC_CHECK_COMPASS2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,441,402,47,10
+    CONTROL         "ENABLE#3",IDC_CHECK_COMPASS3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,500,402,47,10
+    CONTROL         "ENABLE#4",IDC_CHECK_COMPASS4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,559,402,47,10
+    PUSHBUTTON      "CLEAR",IDC_CLEAR,408,419,28,14
+    CONTROL         "GRID",IDC_CHECK_GRID,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,585,419,32,14
+    CONTROL         "ANGLE",IDC_CHECK_ANGLE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,547,419,37,14
+    EDITTEXT        IDC_EDIT_ENCODER1,405,362,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ENCODER2,464,362,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ENCODER3,523,362,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ENCODER4,581,362,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Encod",IDC_STATIC,384,365,21,8
+    LTEXT           "Encod",IDC_STATIC,442,365,21,8
+    LTEXT           "Encod",IDC_STATIC,500,365,21,8
+    LTEXT           "Encod",IDC_STATIC,559,365,21,8
+    EDITTEXT        IDC_EDIT_ENCODER1ANG,405,377,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ENCODER2ANG,464,377,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ENCODER3ANG,523,377,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ENCODER4ANG,581,377,24,14,ES_RIGHT | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Eang",IDC_STATIC,384,380,17,8
+    LTEXT           "Eang",IDC_STATIC,442,380,17,8
+    LTEXT           "Eang",IDC_STATIC,501,380,17,8
+    LTEXT           "Eang",IDC_STATIC,560,380,17,8
+    PUSHBUTTON      "CAL1",IDC_CAL1,482,419,25,14
+    PUSHBUTTON      "CAL2",IDC_CAL2,512,419,25,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Compass1 MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Compass1\0"
+            VALUE "LegalCopyright", "Copyright (C) 2005\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Compass1.EXE\0"
+            VALUE "ProductName", "Compass1 Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_COMPASS1_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 617
+        VERTGUIDE, 366
+        VERTGUIDE, 370
+        VERTGUIDE, 429
+        VERTGUIDE, 488
+        VERTGUIDE, 547
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 433
+        HORZGUIDE, 395
+        HORZGUIDE, 402
+        HORZGUIDE, 419
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "Compass1\n\nCompas\n\n\nCompass1.Document\nCompas Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Compass1"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Compass1.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

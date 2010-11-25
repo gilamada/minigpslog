@@ -1,0 +1,179 @@
+'{$Stamp BS2p}'{$PBASIC 2.0}
+				'Stamp Directive (specifies BS2P)
+
+'*********************************************************************
+'	OEM Example Program for the Basic Stamp 2p uProcessor to 
+'	interface with a PNI Corporation MicroMag and MicroMag3 
+'	Sensor Module.
+'	This program shows how to get the X and Y sensor counts and then
+'	how to calculate heading.
+'	Copyright 20Dec2003, PNI Corporation
+'	Written by Julian Benton, Applications Engineer
+'	Contact: jbenton@pnicorp.com , 707-566-2260 x356
+'*********************************************************************
+
+'Define Constants
+RESET		CON 5				'RESET is pin 5
+DRDY		CON 6				'DRDY is pin 6
+SSNOT		CON 7				'SSNOT is pin 7
+MOSI		CON 8				'MOSI is pin 8
+MISO		CON 9				'MISO is pin 9
+SCLK		CON 10			'SCLK is pin 10
+PI		CON $3244			'Constant for PI in fixed point format
+ONE		CON $1000			'Constant for 1 in fixed point formant	
+
+'Declare Global Variables
+XRawVal	VAR WORD			'Defines the signed 16 bit X sensor value
+YRawVal	VAR WORD			'Defines the signed 16 bit Y sensor value
+ZAccum	VAR WORD			'Defines the Z accumulator
+Heading	VAR WORD			'Defines the current heading
+Mag		VAR WORD			'Defines the field magnitude
+dX		VAR WORD			'Defines the shifted XRawVal
+dY		VAR WORD			'Defines the shifted YRawVal
+dZAccum	VAR WORD			'Defines the shifted ZAccum
+NegX		VAR BIT			'Defines the negative X plane
+NegY		VAR BIT			'Defines the negative Y plane
+Index		VAR WORD			'Defines Index for loop
+J		VAR WORD			'Temporary
+K		VAR WORD			'CORDIC Aggregate Constant
+Inv		VAR BIT			'Defines inverse CORDIC
+
+
+'Interface with MicroMag
+	HIGH SSNOT							
+	LOW SSNOT							'Enable SPI port
+
+'Inital Calculation of K for CORDIC routine by calculating cos(0)/K
+	XRawVal = ONE
+	YRawVal = 0
+	ZAccum = 0
+	GOSUB Circ
+	GOSUB Recip
+
+'Get X sensor counts
+Loop:
+	LOW RESET
+	PULSOUT RESET,5						'Required before every command
+	SHIFTOUT MOSI,SCLK,MSBFIRST,[%01000001]	'Request X sensor counts at Period Select = /512
+	Hold:
+		IF IN6 = 0 THEN Hold				'Wait for DRDY to go HIGH
+	SHIFTIN MISO,SCLK,MSBPRE,[XRawVal\16]	'Get X sensor counts at Period Select = /512
+	PAUSE 1
+		
+'Get Y sensor counts
+	LOW RESET
+	PULSOUT RESET,5						'Required before every command
+	SHIFTOUT MOSI,SCLK,MSBFIRST,[%01000010]	'Request Y sensor counts at Period Select = /512
+	Hold2:
+		IF IN6 = 0 THEN Hold2			'Wait for DRDY to go HIGH
+	SHIFTIN MISO,SCLK,MSBPRE,[YRawVal\16]	'Get Y sensor counts at Period Select = /512
+	PAUSE 1
+
+			DEBUG SDEC ? XRawVal
+			DEBUG SDEC ? YRawVal
+
+	GOSUB Head
+	GOTO Loop
+	
+'Calculate Heading Process
+Head:
+	NegX = XRawVal.BIT15
+	NegY = YRawVal.BIT15
+	XRawVal = ABS(XRawVal)
+	YRawVal = ABS(YRawVal)
+	ZAccum = 0
+GOSUB InvCirc
+	IF NegY = 0 THEN HC1
+	ZAccum = -(ZAccum)
+
+HC1:
+	IF NegX = 0 THEN HC2
+	IF NegY = 1 THEN HC3
+	ZAccum = PI - ZAccum					'Quadrant 2
+GOTO HC2
+
+HC3:
+	ZAccum = -(ZAccum + PI)				'Quadrant 3
+
+HC2:
+	Heading = ZAccum
+	
+'Convert Heading from (-PI/2 to PI/2) into decimal Degree (-180 to 180)
+	Inv = Heading.BIT15
+	Heading = ABS(Heading)
+	Heading = Heading >> 6
+	Heading = (Heading * 180) / (PI >> 6) 
+	IF Heading = 0 THEN HC4
+	Heading = (360 - Heading)
+	IF Heading <> 360 THEN HC4
+	Heading = 0
+	
+HC4:
+			
+	DEBUG DEC ? Heading
+	PAUSE 1000
+	DEBUG CLS
+	
+RETURN
+
+'Invert K = 1/XRawVal
+recip:
+	K = 0
+	Heading = $1000
+	FOR Index = 0 TO 12
+	  	k = k << 1
+	  IF Heading < XRawVal THEN Skipit
+	    	k = k + 1
+	    	Heading = Heading - XRawVal
+	
+Skipit:
+	Heading = Heading << 1
+	NEXT
+     IF Heading < XRawVal THEN skipit2
+	k = k + 1
+	
+Skipit2:
+	RETURN
+
+'Entry point to calculate arctan and sqrt(XRawVal^2 + YRawVal^2) by driving YRawVal -> 0
+InvCirc:
+	Inv = 1
+
+	GOTO L0
+
+'Calculate sin and cos by driving the angle (ZAccum) to zero the
+'result will be in XRawVal (cos(ZAccum)) and YRawVal (sin(ZAccum).
+Circ:
+	Inv = 0
+
+L0:
+	FOR index = 0 TO 12
+	LOOKUP index,[$c91,$76b,$3eb,$1fd,$100,$80,$40,$20,$10,$8,$4,$2,$1],dZAccum	
+	dx = XRawVal >> index
+	IF XRawVal.HIGHBIT = 0 THEN L1
+	dx = dx | ($ffff << (12 - index))	     
+
+L1: 
+	dy = YRawVal >> index
+	IF YRawVal.HIGHBIT = 0 THEN L2
+	dy = dy | ($ffff << (12 - Index))	     
+
+L2: 
+	IF ((ZAccum.BIT15 = 1) AND NOT Inv) OR ((YRawVal.BIT15 = 0) AND Inv) THEN L3
+	ZAccum = ZAccum - dZAccum
+	XRawVal = XRawVal - dy
+	YRawVal = YRawVal + dx
+	    
+GOTO L4
+
+L3:
+	ZAccum = ZAccum + dZAccum
+	XRawVal = XRawVal + dy
+	YRawVal = YRawVal - dx
+
+L4:
+	NEXT
+	RETURN
+
+END
+	

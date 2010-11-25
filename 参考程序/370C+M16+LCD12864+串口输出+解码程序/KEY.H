@@ -1,0 +1,53 @@
+/*******************************************
+函数名称: Skey_press
+功    能: 检测是否有键按下
+参    数: 无
+返回值  : pressed--有键按下时为TRUE，否则为FALSE
+/********************************************/
+uchar Skey_press(void)
+{
+ uchar pressed;		 		
+ KEY_DDR|=OUT;			  //定义数据端口为输出
+ KEY_PORTO|=OUT;		  //输出数据（输出检测码）
+ KEY_DDR&=IN;			  //定义数据端口为输入
+ if((KEY_PORTI&OUT)!=OUT) //检测是否有键按下
+ 	pressed=1;			  //有键按下则返回1
+ else
+ 	pressed=0;			  //无键按下则返回0
+ KEY_DDR|=OUT;			  //数据端口还原为输出
+ return pressed;		  //返回状态
+}
+
+
+/*******************************************
+函数名称: Skey_scan
+功    能: 扫描所按的键并返回键值
+参    数: 无
+返回值  : keycode--被按下键值
+/********************************************/
+uchar Skey_scan(void)
+{
+ uchar keycode=0xFF;        //11111111
+ Delayms(15);		 		//延时消抖
+ if(Skey_press()==1)		//如果有键按下
+ {
+    KEY_DDR&=IN;			//定义数据端口为输入
+	keycode=KEY_PORTI;		//读入原始键码
+	keycode&=OUT;			//00001100 屏蔽其他位 0为屏蔽
+	switch(keycode)			//翻译原始键码为12
+	{
+	   case 0x02:  //000000 10   0为被按下
+	   		keycode=1;
+			break;
+	   case 0x01:  //000000 01
+	   		keycode=2;
+			break;
+	   default:
+	        keycode=0x00;
+	}
+	do
+	{
+	}while(Skey_press()==1);	//等待按键释放（为了防止按一次，执行多次的现象）
+ }
+ return keycode;
+}

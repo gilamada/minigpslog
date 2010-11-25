@@ -1,0 +1,212 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=C:\CVIDE\AP NOTE COMPASS\main_compass.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File001]
+Location=C:\CVIDE\AP NOTE COMPASS\bin16_ASCII.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPAsmWin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File002]
+Location=C:\CVIDE\AP NOTE COMPASS\bin16_ASCII.ERR
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPAsmWin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File003]
+Location=C:\CVIDE\AP NOTE COMPASS\LCD CODE\openxlcd_test.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File004]
+Location=C:\CVIDE\AP NOTE COMPASS\ADOVER\18ADOver.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPAsmWin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File005]
+Location=C:\CVIDE\AP NOTE COMPASS\ADOVER\18ADOver.ERR
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPAsmWin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File006]
+Location=C:\CVIDE\AP NOTE COMPASS\LCD CODE\writdata.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File007]
+Location=C:\CVIDE\AP NOTE COMPASS\LCD CODE\putrxlcd.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File008]
+Location=C:\CVIDE\AP NOTE COMPASS\LCD CODE\setcgram.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File009]
+Location=C:\CVIDE\AP NOTE COMPASS\LCD CODE\setddram.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File010]
+Location=C:\CVIDE\AP NOTE COMPASS\LCD CODE\wcmdxlcd.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File011]
+Location=C:\CVIDE\AP NOTE COMPASS\state_select.o
+Folder=Intermediary
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={E56A1C86-9D32-4DF6-8C34-FE0388B1B644}
+LanguageToolLocation=C:\mcc18\bin\mcc18.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+[File012]
+Location=bin16_ASCII.lst
+Folder=Output
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPAsmWin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File013]
+Location=ADOVER\18ADOver.lst
+Folder=Output
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={49D3CA3F-D9A3-4518-9943-226A347E8CC7}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPAsmWin.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=
+[File014]
+Location=Compass.cof
+Folder=Output
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPLink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /o"$(TARGETBASE).cof"
+[File015]
+Location=Compass.cod
+Folder=Output
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPLink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /o"$(TARGETBASE).cof"
+[File016]
+Location=Compass.hex
+Folder=Output
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPLink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /o"$(TARGETBASE).cof"
+[File017]
+Location=Compass.lst
+Folder=Output
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPLink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /o"$(TARGETBASE).cof"
+[File018]
+Location=Compass.map
+Folder=Output
+DeviceName=PIC18F2520
+LanguageToolSuiteID={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
+LanguageToolID={96C98149-AA1B-4CF9-B967-FAE79CAB663C}
+LanguageToolLocation=C:\Program Files\Microchip\MPASM Suite\MPLink.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|C:\CVIDE\AP NOTE COMPASS\HEADER FILES||$(LIBDIR)|C:\mcc18\lib||$(LKRDIR)||
+SOLK=<src>|main_compass.c|bin16_ASCII.asm|LCD CODE\openxlcd_test.c|ADOVER\18ADOver.asm|LCD CODE\writdata.c|LCD CODE\putrxlcd.c|LCD CODE\setcgram.c|LCD CODE\setddram.c|LCD CODE\wcmdxlcd.c|state_select.c||<obj>||<lib>||<lkr>|C:\mcc18\lkr\18f2520i.lkr||
+SuiteArgsString=
+ToolArgsString=/m"$(BINDIR_)$(TARGETBASE).map" /o"$(TARGETBASE).cof"

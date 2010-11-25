@@ -1,0 +1,160 @@
+做一个GPS导航的项目，需要读取GPS模块以ASCII码的形式发送过来的数据，然后对这些数据进行处理，提取我们需要的信息。这就涉及到很多操作字符串的问题。下面就以此为例，利用strstr函数和sscanf函数解析GPS数据。 
+    关于sscanf函数请见http://www.91linux.com/html/article/program/cpp/20081130/14121.html 
+　　GPS输出的数据格式如下： 
+
+　　$GPGGA,121252.000,3937.3032,N,11611.*6,E,1,05,2.0,45.9,M,-5.7,M,,0000*77 
+
+　　$GPRMC,121252.000,A,3958.3032,N,11629.*6,E,15.15,359.95,070306,,,A*54 
+
+　　$GPVTG,359.95,T,,M,15.15,N,28.0,K,A*04 
+
+　　$GPGGA,121253.000,3937.3090,N,11611.6057,E,1,06,1.2,44.6,M,-5.7,M,,0000*72 
+
+　　$GPGSA,A,3,14,15,05,22,18,26,,,,,,,2.1,1.2,1.7*3D 
+
+　　$GPGSV,3,1,10,18,84,067,23,09,67,067,27,22,49,312,28,15,47,231,30*70 
+
+　　$GPGSV,3,2,10,21,32,199,23,14,25,272,24,05,21,140,32,26,14,070,20*7E 
+
+　　$GPGSV,3,3,10,29,07,074,,30,07,163,28*7D 
+
+　　可以看到，GPS模块发送过来的原始数据有很多，但是通常我们只需要其中的一部分信息就够用了，比如对于导航的功能，我们只需要以$GPRMC开头，以换行符结束的一行信息就够了。即： 
+
+　　$GPRMC,121252.000,A,3958.3032,N,11629.*6,E,15.15,359.95,070306,,,A*54 
+
+　　因此我们需要做的就是从读取的数据中截取以$GPRMC开头的一行信息，然后从中解析出经纬度、日期时间等有效信息即可。 
+
+　　假设从串口读取的数据存放在一个字符串指针char *raw_buf指向的内存单元里，首先我们通过ANSI C提供的strstr()函数找到以$GPRMC开头以换行符’\n’结束的字符串： 
+
+　　/* find "$GPRMC" from raw_buf */ 
+
+　　if ((wellhandled_string = strstr(raw_buf, “$GPRMC”)) != NULL) 
+
+　　{ 
+
+　　for (i=0; i<strlen(wellhandled_string); i++) 
+
+　　{ 
+
+　　if (wellhandled_string[i] == '\n') 
+
+　　{ 
+
+　　wellhandled_string[i] = '\0'; //replace ‘\n’ with null 
+
+　　} 
+
+　　} 
+
+　　} 
+
+　　strstr()函数的原型是这样声明的： 
+
+　　char *strstr(const char *haystack, const char *needle); 
+
+　　strstr()函数可以在字符串haystack中搜索字符串needle第一次出现的位置，并且返回指向字符串needle首地址的指针，如果没有搜索到则返回NULL。因此上面的代码为我们在读取的原始数据raw_buf里搜索$GPRMC第一次出现的位置，并将返回的指针赋给wellhandled_string，这样如果搜索成功，则wellhandled_string就会指向以$GPRMC开始的字符串，接下来通过一个for循环找到换行符’\n’，将其替换为’\0’，即字符串结束符。这样就得到了一个指向有效数据的字符串指针wellhandled_string。 
+
+　　然后要做的工作就是从wellhandled_string中提取出经纬度、日期时间等信息。这个工作就可以交给强大的sscanf函数来实现。sscanf函数的原型如下： 
+
+　　int sscanf(const char *str, const char *format, ...); 
+
+　　我们都比较熟悉scanf这个函数，scanf可以从标准输入流读取与指定格式相符的数据。sscanf则是从const char *str中读取。它的强大之处在于可以方便地从字符串中取出整数、浮点数和字符串等各种类型的数据，而且它还具有类似于正则表达式的匹配功能，sscanf默认是以空格分隔字符串的，如果不是以空格来分割的话，就可以使用%[ ]来指定分割的条件。如%[a-z]表示读取a到z的所有字符，%[^a-z]表示过滤a-z之间的所有字符，即只要遇到a到z之间的任意字符，转换立刻停止。比如： 
+
+　　sscanf(“abcdefABCDEF”, “%[^A-Z]”, str); 
+
+　　printf(“%s\n”, str); 
+
+　　result is: abcdef 
+
+　　%[^A-Z]这样的匹配格式为我们取遇到大写字母为止的字符串。利用这种匹配方式，我们就可以灵活的操作字符串，得到我们想要的结果。 
+
+　　现在我们需要从下面的字符串中提取有效信息： 
+
+　　$GPRMC,121252.000,A,3958.3032,N,11629.*6,E,15.15,359.95,070306,,,A*54 
+
+　　GPRMC每个字段的含义如下： 
+
+　　$GPRMC,<1>,<2>,<3>,<4>,<5>,<6>,<7>,<8>,<9>,<10>,<11>,<12>*hh<CR><LF> 
+
+　　<1> UTC时间，hhmmss（时分秒）格式 
+
+　　<2> 定位状态，A=有效定位，V=无效定位 
+
+　　<3> 纬度ddmm.mmmm（度分）格式（前面的0也将被传输） 
+
+　　<4> 纬度半球N（北半球）或S（南半球） 
+
+　　<5> 经度dddmm.mmmm（度分）格式（前面的0也将被传输） 
+
+　　<6> 经度半球E（东经）或W（西经） 
+
+　　<7> 地面速率（000.0~999.9节，前面的0也将被传输） 
+
+　　<8> 地面航向（000.0~359.9度，以真北为参考基准，前面的0也将被传输） 
+
+　　<9> UTC日期，ddmmyy（日月年）格式 
+
+　　<10> 磁偏角（000.0~180.0度，前面的0也将被传输） 
+
+　　<11> 磁偏角方向，E（东）或W（西） 
+
+　　<12> 模式指示（仅NMEA0183 3.00版本输出，A=自主定位，D=差分，E=估算，N=数据无效） 
+
+　　我们提取1~9九条信息。用一个结构体存放这些信息： 
+
+　　typedef struct gps_info 
+
+　　{ 
+
+　　char utc_time[BUF_SIZE]; 
+
+　　char status; 
+
+　　float latitude_value; 
+
+　　char latitude; 
+
+　　float longtitude_value; 
+
+　　char longtitude; 
+
+　　float speed; 
+
+　　float azimuth_angle; 
+
+　　char utc_data[BUF_SIZE]; 
+
+　　}GPS_INFO; 
+
+　　因为每一个字段之间都是以逗号间隔开的，所以我们可以利用%[^,]来分割字符串，这样用sscanf函数就可以实现对有效信息的提取： 
+
+　　sscanf(wellhandled_string,"$GPRMC,%[^,],%c,%f,%c,%f,%c,%f,%f,%[^,]", 
+
+　　rmc_info->utc_time,\ 
+
+　　&(rmc_info->status),&(rmc_info->latitude_value),&(rmc_info->latitude),\ 
+
+　　&(rmc_info->longtitude_value),&(rmc_info->longtitude),&(rmc_info->speed),\ 
+
+　　&(rmc_info->azimuth_angle),\ 
+
+　　rmc_info->utc_data ); 
+
+　　这个函数执行后，打印出的保存在struct gps_info结构体里的信息如下所示： 
+
+　　utc_time: 024813.640 
+
+　　status: A 
+
+　　latitude: N latitude value: 3158.460693 
+
+　　longtitude: E longtitude value: 11848.374023 
+
+　　speed: 10.050000 
+
+　　azimuth_angle: 324.269989 
+
+　　utc_data: 150706 
+
+　　可见，利用好sscanf函数，可以让我们可以很高效的处理字符串。 
+

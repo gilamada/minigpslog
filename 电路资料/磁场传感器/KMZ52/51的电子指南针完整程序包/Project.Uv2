@@ -1,0 +1,140 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (AT89S52), 0x0000 // Tools: 'MCS-51'
+
+Group (inc)
+Group (driver)
+Group (usr)
+Group (obj)
+Group (doc)
+
+File 1,5,<.\2.Inc\DataBase.h><DataBase.h>
+File 1,5,<.\2.Inc\DriverT6963.h><DriverT6963.h>
+File 1,5,<.\2.Inc\PinDefine.h><PinDefine.h>
+File 1,5,<.\2.Inc\PCF8583.h><PCF8583.h>
+File 1,5,<.\2.Inc\UART.h><UART.h>
+File 1,5,<.\2.Inc\VIIC.h><VIIC.h>
+File 2,1,<.\3.Source\UART.c><UART.c>
+File 2,4,<.\3.Source\IICDRV_MO.LIB><IICDRV_MO.LIB>
+File 2,4,<.\3.Source\PCF8583_MO.LIB><PCF8583_MO.LIB>
+File 2,4,<.\3.Source\T6963DRV_MO.LIB><T6963DRV_MO.LIB>
+File 3,1,<.\1.Main\main.c><main.c>
+File 5,5,<.\6.Documents\LCM24064_CharacterAddressTable.txt><LCM24064_CharacterAddressTable.txt>
+File 5,5,<.\6.Documents\ÈÕÖ¾.txt><ÈÕÖ¾.txt>
+
+
+Options 1,0,0  // Target 'AT89S52'
+ Device (DS89C450)
+ Vendor (Dallas Semiconductor)
+ Cpu (IRAM(0-0xFF) XRAM(0-0x3FF) IROM(0-0xFFFF) CLOCK(33000000) MODDP2)
+ FlashUt ()
+ StupF ("LIB\START4XX.A51" ("Dallas DS89C420/430/440/450 Startup Code"))
+ FlashDR ()
+ DevID (3675)
+ Rgf (DS89C4xx.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ÿDallas\)
+ OrgReg (ÿDallas\)
+ TgStat=16
+ OutDir (.\4.Obj\)
+ OutName (T6963)
+ GenApp=1
+ GenLib=0
+ GenHex=1
+ Debug=1
+ Browse=1
+ LstDir (.\5.List\)
+ HexSel=0
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ MODEL5=0
+ RTOS5=0
+ ROMSZ5=2
+ DHOLD5=0
+ XHOLD5=0
+ T51FL=368
+ XT51FL=0
+ CBANKS5=0
+ XBANKS5=0
+ RCB51 { 0,0,0,0,0,255,255,0,0 }
+ RXB51 { 0,0,0,0,0,0,0,0,0 }
+ OCM51 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCR51 { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IRO51 { 1,0,0,0,0,0,0,1,0 }
+ IRA51 { 0,0,0,0,0,0,1,0,0 }
+ XRA51 { 0,0,0,0,0,0,4,0,0 }
+ XRA512 { 0,0,0,0,0,0,0,0,0 }
+ IROM512 { 0,0,0,0,0,0,0,0,0 }
+ C51FL=21630224
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 (.\2.Inc)
+ AX51FL=4
+ AX51MSC ()
+ AX51SET ()
+ AX51RST ()
+ INCA5 (.\2.Inc)
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ LX51FL=292
+ LX51OVL ()
+ LX51MSC ()
+ LX51DWN ()
+ LX51LFI ()
+ LX51ASN ()
+ LX51RES ()
+ LX51CCL ()
+ LX51UCL ()
+ LX51CSC ()
+ LX51UCS ()
+ LX51COB ()
+ LX51XDB ()
+ LX51PDB ()
+ LX51BIB ()
+ LX51DAB ()
+ LX51IDB ()
+ LX51PRC ()
+ LX51STK ()
+ LX51COS ()
+ LX51XDS ()
+ LX51BIS ()
+ LX51DAS ()
+ LX51IDS ()
+  OPTDL (S8051.DLL)()(DD51.DLL)(-p430)(S8051.DLL)()(TD51.DLL)(-p430)
+  OPTDBG 48126,8,()()()()()()()()()() (BIN\VDM51.DLL)()()()
+ FLASH1 { 1,0,0,0,0,0,0,0,255,255,255,255,0,0,0,0,0,0,0,0 }
+ FLASH2 ()
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+

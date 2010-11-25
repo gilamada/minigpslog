@@ -1,0 +1,53 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+ cExt (*.c)
+ aExt (*.s*; *.src; *.a*)
+ oExt (*.obj)
+ lExt (*.lib)
+ tExt (*.txt; *.h; *.inc)
+ pExt (*.plm)
+ CppX (*.cpp)
+ DaveTm { 0,0,0,0,0,0,0,0 }
+
+Target (AT89S52), 0x0000 // Tools: 'MCS-51'
+GRPOPT 1,(inc),1,0,0
+GRPOPT 2,(driver),0,0,0
+GRPOPT 3,(usr),1,0,0
+GRPOPT 4,(obj),0,0,0
+GRPOPT 5,(doc),1,0,0
+
+OPTFFF 1,1,5,0,0,0,0,0,<.\2.Inc\DataBase.h><DataBase.h> 
+OPTFFF 1,2,5,0,0,0,0,0,<.\2.Inc\DriverT6963.h><DriverT6963.h> 
+OPTFFF 1,3,5,0,0,0,0,0,<.\2.Inc\PinDefine.h><PinDefine.h> 
+OPTFFF 1,4,5,0,0,0,0,0,<.\2.Inc\PCF8583.h><PCF8583.h> 
+OPTFFF 1,5,5,0,0,0,0,0,<.\2.Inc\UART.h><UART.h> 
+OPTFFF 1,6,5,0,0,0,0,0,<.\2.Inc\VIIC.h><VIIC.h> 
+OPTFFF 2,7,1,0,0,0,0,0,<.\3.Source\UART.c><UART.c> 
+OPTFFF 2,8,4,0,0,0,0,0,<.\3.Source\IICDRV_MO.LIB><IICDRV_MO.LIB> 
+OPTFFF 2,9,4,0,0,0,0,0,<.\3.Source\PCF8583_MO.LIB><PCF8583_MO.LIB> 
+OPTFFF 2,10,4,0,0,0,0,0,<.\3.Source\T6963DRV_MO.LIB><T6963DRV_MO.LIB> 
+OPTFFF 3,11,1,301989888,0,0,0,0,<.\1.Main\main.c><main.c> 
+OPTFFF 5,12,5,0,0,0,0,0,<.\6.Documents\LCM24064_CharacterAddressTable.txt><LCM24064_CharacterAddressTable.txt> 
+OPTFFF 5,13,5,419430400,0,0,0,0,<.\6.Documents\日志.txt><日志.txt> 
+
+
+TARGOPT 1, (AT89S52)
+ CLK51=33000000
+  OPTTT 0,1,1,0
+  OPTHX 0,65535,0,0,0
+  OPTLX 120,65,8,<.\5.List\>
+  OPTOX 16
+  OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
+  OPTXL 1,1,1,1,1,1,1,0,0
+  OPTFL 1,0,1
+  OPTAX 0
+  OPTDL (S8051.DLL)()(DD51.DLL)(-p430)(S8051.DLL)()(TD51.DLL)(-p430)
+  OPTDBG 48126,8,()()()()()()()()()() (BIN\VDM51.DLL)()()()
+  OPTKEY 0,(DLGTP51)((98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(99=-1,-1,-1,-1,0)(101=-1,-1,-1,-1,0)(91=-1,-1,-1,-1,0)(92=-1,-1,-1,-1,0)(94=-1,-1,-1,-1,0)(104=-1,-1,-1,-1,0)(5067=-1,-1,-1,-1,0))
+  OPTKEY 0,(VDM51)()
+  OPTDF 0x80
+  OPTLE <>
+  OPTLC <>
+EndOpt
+

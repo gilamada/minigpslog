@@ -1,0 +1,41 @@
+				'Stamp Directive (specifies BS2P)
+
+'*********************************************************************
+'	OEM Example Program for the Basic Stamp 2p uProcessor to 
+'	interface with a PNI Corporation 11096 ASIC.
+'	This program shows how to get a continuous X sensor output.
+'	Copyright 20Dec2003, PNI Corporation
+'	Written by Julian Benton, Applications Engineer
+'	Contact: jbenton@pnicorp.com , 707-566-2260 x356
+'*********************************************************************
+
+'Declare Global Constants
+RESET		CON 5				'Reset is pin 5
+DRDY		CON 6				'DRDY is pin 6
+SSNOT		CON 7				'SSNOT is pin 7
+MOSI		CON 8				'MOSI is pin 8
+MISO		CON 9				'MISO is pin 9
+SCLK		CON 10			'SCLK is pin 10
+
+'Declare Variables
+XRawVal	VAR	WORD		'Defines word for signed 16 bit ASIC response
+	
+
+'Interface to ASIC
+HIGH SSNOT
+LOW SSNOT
+Loop:
+	LOW RESET
+	PULSOUT RESET,2
+	SHIFTOUT MOSI,SCLK,MSBFIRST,[%00000001]	'Get X Sensor counts @ Period Select = /32
+	Hold:
+		IF IN6 = 0 THEN Hold				'Wait for DRDY to go HIGH
+	SHIFTIN MISO,SCLK,MSBPRE,[XRawVal\16]
+	PAUSE 1
+
+		DEBUG SDEC ? XRawVal
+	
+	GOTO LOOP
+END
+	
+	
