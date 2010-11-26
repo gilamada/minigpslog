@@ -12,17 +12,17 @@
 
 Target (Flash), 0x0004 // Tools: 'ARM-ADS'
 Target (RAM), 0x0004 // Tools: 'ARM-ADS'
-GRPOPT 1,(StartUp),1,0,0
-GRPOPT 2,(App),1,0,0
-GRPOPT 3,(Hal),1,0,0
-GRPOPT 4,(Lib),1,0,0
+GRPOPT 1,(StartUp),0,0,0
+GRPOPT 2,(App),0,0,0
+GRPOPT 3,(Hal),0,0,0
+GRPOPT 4,(Lib),0,0,0
 GRPOPT 5,(GUI),0,0,0
-GRPOPT 6,(FATFS),1,0,0
+GRPOPT 6,(FATFS),0,0,0
 
 OPTFFF 1,1,2,0,0,0,0,0,<..\Libraries\CMSIS\Core\CM3\startup\arm\startup_stm32f10x_hd.s><startup_stm32f10x_hd.s> 
-OPTFFF 2,2,1,16777218,0,62,85,0,<..\Src\main.c><main.c> { 44,0,0,0,2,0,0,0,3,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,66,0,0,0,87,0,0,0,188,3,0,0,143,1,0,0 }
+OPTFFF 2,2,1,16777216,0,62,62,0,<..\Src\main.c><main.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,66,0,0,0,87,0,0,0,188,3,0,0,143,1,0,0 }
 OPTFFF 2,3,5,0,0,41,41,0,<..\Src\config.h><config.h> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,22,0,0,0,29,0,0,0,148,3,0,0,86,1,0,0 }
-OPTFFF 2,4,5,0,0,54,54,0,<..\Src\stm32f10x_conf.h><stm32f10x_conf.h> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,44,0,0,0,58,0,0,0,170,3,0,0,115,1,0,0 }
+OPTFFF 2,4,5,385875968,0,6,20,0,<..\Src\stm32f10x_conf.h><stm32f10x_conf.h> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,44,0,0,0,58,0,0,0,170,3,0,0,115,1,0,0 }
 OPTFFF 2,5,1,0,0,946,946,0,<..\Src\stm32f10x_it.c><stm32f10x_it.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,66,0,0,0,87,0,0,0,192,3,0,0,144,1,0,0 }
 OPTFFF 3,6,1,486539264,0,19,32,0,<..\Src\hal.c><hal.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,0,0,0,0,0,0,0,0,126,3,0,0,57,1,0,0 }
 OPTFFF 3,7,1,0,0,65,65,0,<..\Src\DS18B20.C><DS18B20.C> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,0,0,0,0,0,0,0,0,126,3,0,0,57,1,0,0 }
@@ -35,42 +35,36 @@ OPTFFF 4,13,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_w
 OPTFFF 4,14,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c><misc.c> 
 OPTFFF 4,15,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c><stm32f10x_adc.c> 
 OPTFFF 4,16,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_bkp.c><stm32f10x_bkp.c> 
-OPTFFF 4,17,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_can.c><stm32f10x_can.c> 
-OPTFFF 4,18,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_crc.c><stm32f10x_crc.c> 
-OPTFFF 4,19,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dac.c><stm32f10x_dac.c> 
-OPTFFF 4,20,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c><stm32f10x_dbgmcu.c> 
-OPTFFF 4,21,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dma.c><stm32f10x_dma.c> 
-OPTFFF 4,22,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c><stm32f10x_exti.c> 
-OPTFFF 4,23,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c><stm32f10x_flash.c> 
-OPTFFF 4,24,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_fsmc.c><stm32f10x_fsmc.c> 
-OPTFFF 4,25,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c><stm32f10x_gpio.c> 
-OPTFFF 4,26,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_i2c.c><stm32f10x_i2c.c> 
-OPTFFF 4,27,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_iwdg.c><stm32f10x_iwdg.c> 
-OPTFFF 4,28,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_pwr.c><stm32f10x_pwr.c> 
-OPTFFF 4,29,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c><stm32f10x_rcc.c> 
-OPTFFF 4,30,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rtc.c><stm32f10x_rtc.c> 
-OPTFFF 4,31,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_sdio.c><stm32f10x_sdio.c> 
-OPTFFF 4,32,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c><stm32f10x_spi.c> 
-OPTFFF 4,33,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c><stm32f10x_tim.c> 
-OPTFFF 4,34,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c><stm32f10x_usart.c> 
-OPTFFF 4,35,1,0,0,0,0,0,<..\Libraries\CMSIS\Core\CM3\system_stm32f10x.c><system_stm32f10x.c> 
-OPTFFF 4,36,1,0,0,0,0,0,<..\Libraries\CMSIS\Core\CM3\core_cm3.c><core_cm3.c> 
-OPTFFF 5,37,1,0,0,0,0,0,<..\Src\GUI\windows.c><windows.c> 
-OPTFFF 5,38,1,0,0,0,0,0,<..\Src\GUI\ConvertColor.c><ConvertColor.c> 
-OPTFFF 5,39,1,0,0,0,0,0,<..\Src\GUI\font5_7.c><font5_7.c> 
-OPTFFF 5,40,1,0,0,0,0,0,<..\Src\GUI\FONT8_8.C><FONT8_8.C> 
-OPTFFF 5,41,1,0,0,0,0,0,<..\Src\GUI\FONT24_32.C><FONT24_32.C> 
-OPTFFF 5,42,1,0,0,1194,1202,0,<..\Src\GUI\GUI_BASIC.C><GUI_BASIC.C> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,22,0,0,0,29,0,0,0,148,3,0,0,86,1,0,0 }
-OPTFFF 5,43,1,0,0,0,0,0,<..\Src\GUI\GUI_StockC.C><GUI_StockC.C> 
-OPTFFF 5,44,1,0,0,0,0,0,<..\Src\GUI\loadbit.c><loadbit.c> 
-OPTFFF 5,45,1,0,0,0,0,0,<..\Src\GUI\menu.c><menu.c> 
-OPTFFF 5,46,1,0,0,0,0,0,<..\Src\GUI\spline.c><spline.c> 
-OPTFFF 5,47,1,0,0,0,0,0,<..\Src\GUI\mcu_related\lcmdrv.c><lcmdrv.c> 
-OPTFFF 6,48,1,671088640,0,215,215,0,<..\Src\FatFS\diskio.c><diskio.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,110,0,0,0,145,0,0,0,236,3,0,0,202,1,0,0 }
-OPTFFF 6,49,1,0,0,1125,1127,0,<..\Src\FatFS\ff.c><ff.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,44,0,0,0,58,0,0,0,170,3,0,0,115,1,0,0 }
-OPTFFF 6,50,1,0,0,0,0,0,<..\Src\FatFS\option\ccsbcs.c><ccsbcs.c> 
+OPTFFF 4,17,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dac.c><stm32f10x_dac.c> 
+OPTFFF 4,18,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c><stm32f10x_dbgmcu.c> 
+OPTFFF 4,19,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_dma.c><stm32f10x_dma.c> 
+OPTFFF 4,20,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c><stm32f10x_exti.c> 
+OPTFFF 4,21,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c><stm32f10x_gpio.c> 
+OPTFFF 4,22,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_iwdg.c><stm32f10x_iwdg.c> 
+OPTFFF 4,23,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_pwr.c><stm32f10x_pwr.c> 
+OPTFFF 4,24,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c><stm32f10x_rcc.c> 
+OPTFFF 4,25,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rtc.c><stm32f10x_rtc.c> 
+OPTFFF 4,26,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c><stm32f10x_spi.c> 
+OPTFFF 4,27,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c><stm32f10x_tim.c> 
+OPTFFF 4,28,1,0,0,0,0,0,<..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c><stm32f10x_usart.c> 
+OPTFFF 4,29,1,0,0,0,0,0,<..\Libraries\CMSIS\Core\CM3\system_stm32f10x.c><system_stm32f10x.c> 
+OPTFFF 4,30,1,0,0,0,0,0,<..\Libraries\CMSIS\Core\CM3\core_cm3.c><core_cm3.c> 
+OPTFFF 5,31,1,0,0,0,0,0,<..\Src\GUI\windows.c><windows.c> 
+OPTFFF 5,32,1,0,0,0,0,0,<..\Src\GUI\ConvertColor.c><ConvertColor.c> 
+OPTFFF 5,33,1,0,0,0,0,0,<..\Src\GUI\font5_7.c><font5_7.c> 
+OPTFFF 5,34,1,0,0,0,0,0,<..\Src\GUI\FONT8_8.C><FONT8_8.C> 
+OPTFFF 5,35,1,0,0,0,0,0,<..\Src\GUI\FONT24_32.C><FONT24_32.C> 
+OPTFFF 5,36,1,0,0,1194,1202,0,<..\Src\GUI\GUI_BASIC.C><GUI_BASIC.C> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,22,0,0,0,29,0,0,0,148,3,0,0,86,1,0,0 }
+OPTFFF 5,37,1,0,0,0,0,0,<..\Src\GUI\GUI_StockC.C><GUI_StockC.C> 
+OPTFFF 5,38,1,0,0,0,0,0,<..\Src\GUI\loadbit.c><loadbit.c> 
+OPTFFF 5,39,1,0,0,0,0,0,<..\Src\GUI\menu.c><menu.c> 
+OPTFFF 5,40,1,0,0,0,0,0,<..\Src\GUI\spline.c><spline.c> 
+OPTFFF 5,41,1,0,0,0,0,0,<..\Src\GUI\mcu_related\lcmdrv.c><lcmdrv.c> 
+OPTFFF 6,42,1,671088640,0,215,215,0,<..\Src\FatFS\diskio.c><diskio.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,110,0,0,0,145,0,0,0,236,3,0,0,202,1,0,0 }
+OPTFFF 6,43,1,0,0,1125,1127,0,<..\Src\FatFS\ff.c><ff.c> { 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,44,0,0,0,58,0,0,0,170,3,0,0,115,1,0,0 }
+OPTFFF 6,44,1,0,0,0,0,0,<..\Src\FatFS\option\ccsbcs.c><ccsbcs.c> 
 
-ExtF <F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\Code\Src\display.c> 1,8,0,{ 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,88,0,0,0,116,0,0,0,210,3,0,0,172,1,0,0 }
+ExtF <F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\Code\Src\display.c> 1,8,0,{ 44,0,0,0,0,0,0,0,1,0,0,0,255,255,255,255,255,255,255,255,252,255,255,255,226,255,255,255,88,0,0,0,116,0,0,0,210,3,0,0,172,1,0,0 }
 
 TARGOPT 1, (Flash)
  ADSCLK=8000000
@@ -80,7 +74,7 @@ TARGOPT 1, (Flash)
   OPTOX 16
   OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
   OPTXL 1,1,1,1,1,1,1,0,0
-  OPTFL 1,0,0
+  OPTFL 1,0,1
   OPTAX 255
   OPTBL 0,(Reference Manual)<DATASHTS\ST\STM32F10xxx.PDF>
   OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pSTM32F103ZE)(SARMCM3.DLL)()(TARMSTM.DLL)(-pSTM32F103ZE)
@@ -99,11 +93,11 @@ TARGOPT 2, (RAM)
  ADSCLK=8000000
   OPTTT 1,1,1,0
   OPTHX 1,65535,0,0,0
-  OPTLX 79,66,8,<..\Obj\>
+  OPTLX 79,66,8,<.\Obj\>
   OPTOX 16
   OPTLT 1,1,1,0,1,1,0,1,0,0,0,0
   OPTXL 1,1,1,1,1,1,1,0,0
-  OPTFL 1,0,1
+  OPTFL 1,0,0
   OPTAX 255
   OPTBL 0,(Reference Manual)<DATASHTS\ST\STM32F10xxx.PDF>
   OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pSTM32F103ZE)(SARMCM3.DLL)()(TARMSTM.DLL)(-pSTM32F103ZE)
