@@ -1,0 +1,3 @@
+del /Q .\Obj\*.*
+
+PAUSE
