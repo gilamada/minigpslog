@@ -80,14 +80,14 @@
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -4 -30 0 200 0 501"))
+        (Placement "44 2 3 -1 -1 -4 -30 0 200 0 501"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -4 -30 44 1304 58 593")
-        (Scroll "0 0")
-        (Zoom "53")
+        (Placement "44 0 1 -1 -1 -4 -30 44 1304 58 593")
+        (Scroll "334 1310")
+        (Zoom "184")
         (Occurrence "/"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG.DSN")
       (Schematic "GPS")
@@ -136,4 +136,4 @@
         (Zoom "106"))
       (Path "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
       (Package "STM32F103C")))
-  (MPSSessionName "Jason"))
+  (MPSSessionName "Administrator"))
