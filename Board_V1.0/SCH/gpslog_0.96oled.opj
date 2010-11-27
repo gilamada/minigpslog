@@ -1,0 +1,44 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "f:\模块\mylib\sch\mylib.olb"
+        (Type "Schematic Library")))
+    (File ".\gpslog_0.96oled.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    (OLED_0.96
+      (FullPartName "OLED_0.96.Normal")
+      (LibraryName "F:\模块\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\gpslog_0.96oled.dsn")
+      (Path "Design Resources" ".\gpslog_0.96oled.dsn" "GPS")
+      (Path "Design Resources" "Library")
+      (Path "Design Resources" "Library" "f:\模块\mylib\sch\mylib.olb")
+      (Select "Design Resources" "Library" "f:\模块\mylib\sch\mylib.olb"
+         "OLED_1.5"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 0 200 0 434"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -30 44 1170 58 526")
+        (Scroll "0 0")
+        (Zoom "65")
+        (Occurrence "/"))
+      (Path "F:\模块\GPS轨迹记录仪\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DSN")
+      (Schematic "GPS")
+      (Page "gpslog"))))
