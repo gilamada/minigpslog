@@ -1,0 +1,138 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (File ".\mylib.olb"
+      (Type "Schematic Library"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify)
+    (File "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\Board_V1.0\SCH\GPSlog.DSN"
+      (Type "Schematic Design"))
+    (Board_sim_option "VHDL_flow"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\Board_V1.0\SCH\GPSlog.DSN")
+      (Path "Design Resources"
+         "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\Board_V1.0\SCH\GPSlog.DSN" "GPS")
+      (Path "Design Resources" "f:\Ä£¿é\mylib\sch\mylib.olb")
+      (Select "Design Resources"
+         "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\Board_V1.0\SCH\GPSlog.DSN" "Design Cache"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 0 200 0 505"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 294 1416 28 492")
+        (Scroll "1595 693")
+        (Zoom "220")
+        (Occurrence "/"))
+      (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG.DSN")
+      (Schematic "GPS")
+      (Page "gpslog"))
+    (Doc
+      (Type "COrPartDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 633 1897 19 558")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "679 540")
+        (Zoom "147"))
+      (Path "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (Package "STM32F103C"))
+    (Doc
+      (Type "COrPartDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 66 1192 87 555")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "2811 1051")
+        (Zoom "622"))
+      (Path "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (Package "LDO_EN"))
+    (Doc
+      (Type "COrPartDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 115 1237 95 559")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "1747 638")
+        (Zoom "440"))
+      (Path "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (Package "BAT-3.0")))
+  (MPSSessionName "Jason")
+  (PartMRUSelector
+    (BAT-3.0
+      (FullPartName "BAT-3.0.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (DIODE
+      (FullPartName "DIODE.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (CAP-1
+      (FullPartName "CAP-1.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (CRYSTAL
+      (FullPartName "CRYSTAL.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (STM32F103C
+      (FullPartName "STM32F103C.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (SPI_FLASH
+      (FullPartName "SPI_FLASH.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (VCC
+      (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (CAP-2
+      (FullPartName "CAP-2.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (LDO_EN
+      (FullPartName "LDO_EN.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (SW_ON/OFF_1
+      (FullPartName "SW_ON/OFF_1.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (BAT
+      (FullPartName "BAT.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (PowerMinitor
+      (FullPartName "PowerMinitor.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (L
+      (FullPartName "L.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (USB_MINI_B
+      (FullPartName "USB_MINI_B.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))))
