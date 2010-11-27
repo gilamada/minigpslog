@@ -23,9 +23,7 @@
       (Path "Design Resources" ".\gpslog_0.96oled.dsn")
       (Path "Design Resources" ".\gpslog_0.96oled.dsn" "GPS")
       (Path "Design Resources" "Library")
-      (Path "Design Resources" "Library" "f:\Ä£¿é\mylib\sch\mylib.olb")
-      (Select "Design Resources" "Library" "f:\Ä£¿é\mylib\sch\mylib.olb"
-         "OLED_1.5"))
+      (Select "Design Resources" ".\gpslog_0.96oled.dsn" "GPS" "gpslog"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -35,10 +33,11 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -4 -30 44 1170 58 526")
-        (Scroll "0 0")
-        (Zoom "65")
+        (Placement "44 2 3 -1 -1 -4 -30 72 1198 263 731")
+        (Scroll "830 371")
+        (Zoom "150")
         (Occurrence "/"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DSN")
       (Schematic "GPS")
-      (Page "gpslog"))))
+      (Page "gpslog")))
+  (MPSSessionName "Administrator"))
