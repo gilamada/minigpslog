@@ -3,16 +3,67 @@
   (ProjectType "PCB")
   (Folder "Design Resources"
     (Folder "Library"
-      (File "f:\Ä£¿é\mylib\sch\mylib.olb"
+      (File "f:\Ä£¿é\gps¹ì¼£¼ÇÂ¼ÒÇ\mylib\sch\mylib.olb"
         (Type "Schematic Library")))
     (File ".\gpslog_0.96oled.dsn"
       (Type "Schematic Design"))
     (BuildFileAddedOrDeleted "x")
     (CompileFileAddedOrDeleted "x")
-    (NoModify))
-  (Folder "Outputs")
+    (NoModify)
+    (ANNOTATE_Scope "0")
+    (ANNOTATE_Mode "1")
+    (ANNOTATE_Action "0")
+    (Annotate_Page_Order "0")
+    (ANNOTATE_Reset_References_to_1 "FALSE")
+    (ANNOTATE_No_Page_Number_Change "FALSE")
+    (ANNOTATE_Property_Combine "{Value}{Source Package}{POWER_GROUP}")
+    (ANNOTATE_IncludeNonPrimitive "FALSE")
+    (DRC_Scope "0")
+    (DRC_Action "0")
+    (DRC_Create_Warnings "TRUE")
+    (DRC_Check_Ports "TRUE")
+    (DRC_Check_Off-Page_Connectors "TRUE")
+    (DRC_Identical_References "TRUE")
+    (DRC_Type_Mismatch "TRUE")
+    (DRC_Report_Ports_and_Off-page_Connectors "TRUE")
+    (DRC_SDT_Compatibility "FALSE")
+    (DRC_Report_Off-grid_Objects "TRUE")
+    (DRC_Check_Unconnected_Nets "TRUE")
+    (DRC_Check_for_Misleading_TAP "TRUE")
+    (DRC_Visible_Power_pins "TRUE")
+    (DRC_Report_Netnames "TRUE")
+    (DRC_View_Output "FALSE")
+    (DRC_Report_File "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DRC")
+    (Netlist_TAB "8")
+    (OTHER_Part_Value "{Value}")
+    (OTHER_Netlist_File "GPSLOG_0.96OLED.asc")
+    (OTHER_Netlist_File2 "GPSLOG_0.96OLED.CMP")
+    (OTHER_View_Output "FALSE")
+    (OTHER_View_Output2 "FALSE")
+    (OTHER_Formatter "padspcb.dll")
+    (OTHER_PCB_Footprint "{PCB Footprint}")
+    (OTHER_Switch0 "FALSE")
+    (OTHER_Switch1 "FALSE")
+    (OTHER_Switch2 "FALSE")
+    (OTHER_Switch3 "FALSE")
+    (OTHER_Switch4 "FALSE")
+    (OTHER_Switch5 "FALSE")
+    (OTHER_Switch6 "FALSE"))
+  (Folder "Outputs"
+    (File ".\gpslog_0.96oled.drc"
+      (Type "Report"))
+    (File ".\gpslog_0.96oled.asc"
+      (Type "Report")))
   (Folder "Referenced Projects")
   (PartMRUSelector
+    (OLED_0.96
+      (FullPartName "OLED_0.96.Normal")
+      (LibraryName "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (CON7
+      (FullPartName "CON7.Normal")
+      (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
     ("CONN TRBLK 5"
       (FullPartName "CONN TRBLK 5.Normal")
       (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
@@ -23,10 +74,6 @@
     (MOS
       (FullPartName "MOS.Normal")
       (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
-      (DeviceIndex "0"))
-    (OLED_0.96
-      (FullPartName "OLED_0.96.Normal")
-      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
       (DeviceIndex "0")))
   (GlobalState
     (FileView
@@ -34,7 +81,10 @@
       (Path "Design Resources" ".\gpslog_0.96oled.dsn")
       (Path "Design Resources" ".\gpslog_0.96oled.dsn" "GPS")
       (Path "Design Resources" "Library")
-      (Select "Design Resources" "Library" "f:\Ä£¿é\mylib\sch\mylib.olb"))
+      (Path "Design Resources" "Library"
+         "f:\Ä£¿é\gps¹ì¼£¼ÇÂ¼ÒÇ\mylib\sch\mylib.olb")
+      (Path "Outputs")
+      (Select "Design Resources" ".\gpslog_0.96oled.dsn" "GPS" "gpslog"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -44,12 +94,12 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -4 -30 52 1178 187 655")
-        (Scroll "0 0")
-        (Zoom "75")
+        (Placement "44 0 1 -1 -1 -4 -30 52 1178 187 655")
+        (Scroll "1069 938")
+        (Zoom "169")
         (Occurrence "/"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DSN")
       (Schematic "GPS")
       (Page "gpslog")))
-  (MPSSessionName "Administrator")
+  (MPSSessionName "Jason")
   (LastUsedLibraryBrowseDirectory "E:\OrCAD\OrCAD_10.5\tools\capture\library"))
