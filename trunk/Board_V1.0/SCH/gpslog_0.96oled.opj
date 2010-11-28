@@ -13,6 +13,17 @@
   (Folder "Outputs")
   (Folder "Referenced Projects")
   (PartMRUSelector
+    ("CONN TRBLK 5"
+      (FullPartName "CONN TRBLK 5.Normal")
+      (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
+    ("GND_FIELD SIGNAL"
+      (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (MOS
+      (FullPartName "MOS.Normal")
+      (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
     (OLED_0.96
       (FullPartName "OLED_0.96.Normal")
       (LibraryName "F:\Ä£¿é\MYLIB\SCH\MYLIB.OLB")
@@ -23,7 +34,7 @@
       (Path "Design Resources" ".\gpslog_0.96oled.dsn")
       (Path "Design Resources" ".\gpslog_0.96oled.dsn" "GPS")
       (Path "Design Resources" "Library")
-      (Select "Design Resources" ".\gpslog_0.96oled.dsn" "GPS" "gpslog"))
+      (Select "Design Resources" "Library" "f:\Ä£¿é\mylib\sch\mylib.olb"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -33,11 +44,12 @@
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -4 -30 72 1198 263 731")
-        (Scroll "830 371")
-        (Zoom "150")
+        (Placement "44 2 3 -1 -1 -4 -30 52 1178 187 655")
+        (Scroll "0 0")
+        (Zoom "75")
         (Occurrence "/"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DSN")
       (Schematic "GPS")
       (Page "gpslog")))
-  (MPSSessionName "Administrator"))
+  (MPSSessionName "Administrator")
+  (LastUsedLibraryBrowseDirectory "E:\OrCAD\OrCAD_10.5\tools\capture\library"))
