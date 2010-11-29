@@ -7,8 +7,6 @@ Checking Schematic: GPS
 Checking Electrical Rules 
 
 Checking for Unconnected Nets
-WARNING:  [DRC0006]  Net has fewer than two connections SPI2_MISO
-                    GPS, gpslog  (12.80, 3.40) 
 
 Checking Off-Page Connections
 
@@ -32,65 +30,64 @@ Reporting Globals
     AGND
 
 Reporting Net Names
-    N118206
-    SPI1_CLK
-    N155529
-    N00208
-    VCC5
-    SPI1_CS
-    N42729
     N30614
-    I2C1_SCL
-    DRDY
-    I2C2_SDA
-    N00449
-    I2C2_SCL
-    N156444
-    N117953
-    SPI2_MOSI
-    VCC33
     I2C1_SDA
-    N23456
-    SPI2_MISO
-    N215744
-    USB_EN
-    SPI2_SCK
-    SPI2_CS
-    USB_DP
-    VCC_3.7
-    UART1_TXD
-    USB_DM
-    EOC
-    N04100
-    UART1_RXD
-    CHRG#
-    XCLR
+    N00449
+    I2C1_SCL
     N166189
-    AD_V3.7
-    SWCLK
-    SWDIO
+    SPI2_MOSI
+    N163718
+    N23456
+    N215744
+    SPI2_SCK
+    AGND
+    USB_EN
+    N08932
+    SPI2_CS
+    EOC
+    DRDY
+    KEY_OK
+    I2C2_SDA
+    USB_DP
     KEY_DOWN
     GPS_PWR
-    N156752
-    KEY_OK
-    KEY_UP
-    N42563
-    AGND
-    OLED_RST
-    N08932
+    SPI1_CS
+    USB_DM
+    SWCLK
+    CHRG#
     N142354
-    SPI1_MISO
-    N00217
-    SPI1_MOSI
-    GND
-    N17641
-    N198984
-    N155227
-    N163718
-    N17273
-    N118461
-    N1052570
+    SWDIO
+    AD_V3.7
+    VCC5
+    UART1_RXD
+    UART1_TXD
+    OLED_RST
+    N42563
+    N42729
+    KEY_UP
     N04371
+    VCC33
+    N04100
+    N118461
+    SPI1_MISO
+    N118206
+    SPI1_MOSI
+    N00217
+    SPI1_CLK
+    GND
+    N117953
+    N17641
+    I2C2_SCL
+    XCLR
+    VCC_3.7
+    N17273
+    N156752
+    N00208
+    N156444
+    N198984
+    N155529
+    N155227
+    N1052570
 
 Checking Visible Unconnected Power Pins
 

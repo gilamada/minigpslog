@@ -80,11 +80,7 @@
       (Path "Design Resources")
       (Path "Design Resources" ".\gpslog_0.96oled.dsn")
       (Path "Design Resources" ".\gpslog_0.96oled.dsn" "GPS")
-      (Path "Design Resources" "Library")
-      (Path "Design Resources" "Library"
-         "f:\Ä£¿é\gps¹ì¼£¼ÇÂ¼ÒÇ\mylib\sch\mylib.olb")
-      (Path "Outputs")
-      (Select "Design Resources" ".\gpslog_0.96oled.dsn" "GPS" "gpslog"))
+      (Path "Outputs"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -95,11 +91,11 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -4 -30 52 1178 187 655")
-        (Scroll "1069 938")
-        (Zoom "169")
+        (Scroll "863 707")
+        (Zoom "150")
         (Occurrence "/"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DSN")
       (Schematic "GPS")
       (Page "gpslog")))
-  (MPSSessionName "Jason")
+  (MPSSessionName "Administrator")
   (LastUsedLibraryBrowseDirectory "E:\OrCAD\OrCAD_10.5\tools\capture\library"))
