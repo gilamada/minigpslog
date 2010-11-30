@@ -56,6 +56,14 @@
       (Type "Report")))
   (Folder "Referenced Projects")
   (PartMRUSelector
+    (SW_POWER
+      (FullPartName "SW_POWER.Normal")
+      (LibraryName "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (TEST
+      (FullPartName "TEST.Normal")
+      (LibraryName "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
     (OLED_0.96
       (FullPartName "OLED_0.96.Normal")
       (LibraryName "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\MYLIB\SCH\MYLIB.OLB")
@@ -80,22 +88,41 @@
       (Path "Design Resources")
       (Path "Design Resources" ".\gpslog_0.96oled.dsn")
       (Path "Design Resources" ".\gpslog_0.96oled.dsn" "GPS")
-      (Path "Outputs"))
+      (Path "Design Resources" "Library")
+      (Path "Outputs")
+      (Select "Design Resources" ".\gpslog_0.96oled.dsn" "GPS" "gpslog"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -4 -30 0 200 0 434"))
+        (Placement "44 0 1 -1 -1 -4 -30 27 396 28 524"))
       (Tab 0))
+    (Doc
+      (Type "COrPartDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 27 1149 223 687")
+        (PackageScroll "0 0")
+        (PackageZoom "1")
+        (PartPackage "Part")
+        (Scroll "2162 765")
+        (Zoom "497"))
+      (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\MYLIB\SCH\MYLIB.OLB")
+      (Package "SW_POWER"))
+    (Doc
+      (Type "TextFile")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 154 1276 203 667"))
+      (Path "f:\Ä£¿é\gps¹ì¼£¼ÇÂ¼ÒÇ\board_v1.0\sch\gpslog_0.96oled.drc")
+      (Scroll "60"))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -4 -30 52 1178 187 655")
-        (Scroll "863 707")
-        (Zoom "150")
+        (Placement "44 2 3 -1 -1 -4 -30 60 1186 44 512")
+        (Scroll "718 44")
+        (Zoom "130")
         (Occurrence "/"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DSN")
       (Schematic "GPS")
       (Page "gpslog")))
-  (MPSSessionName "Administrator")
+  (MPSSessionName "Jason")
   (LastUsedLibraryBrowseDirectory "E:\OrCAD\OrCAD_10.5\tools\capture\library"))
