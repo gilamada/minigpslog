@@ -30,63 +30,65 @@ Reporting Globals
     AGND
 
 Reporting Net Names
-    N30614
-    I2C1_SDA
-    N00449
-    I2C1_SCL
-    N166189
-    SPI2_MOSI
-    N163718
-    N23456
-    N215744
-    SPI2_SCK
+    N263677
+    N266013
+    KEY_UP
+    SPI1_CLK
     AGND
-    USB_EN
-    N08932
-    SPI2_CS
-    EOC
-    DRDY
+    I2C1_SCL
     KEY_OK
-    I2C2_SDA
     USB_DP
     KEY_DOWN
-    GPS_PWR
     SPI1_CS
+    USB_EN
     USB_DM
     SWCLK
-    CHRG#
     N142354
+    EOC
     SWDIO
+    CHRG#
+    I2C2_SCL
+    N155529
+    XCLR
+    N198984
     AD_V3.7
+    N42729
+    VCC_3.7
+    N00208
     VCC5
-    UART1_RXD
-    UART1_TXD
+    N155227
     OLED_RST
     N42563
-    N42729
-    KEY_UP
-    N04371
-    VCC33
-    N04100
+    N00449
+    SPI2_MOSI
     N118461
-    SPI1_MISO
-    N118206
-    SPI1_MOSI
+    N23456
+    SPI2_CS
+    SPI2_SCK
+    N215744
+    I2C1_SDA
+    DRDY
+    N08932
     N00217
-    SPI1_CLK
-    GND
-    N117953
     N17641
-    I2C2_SCL
-    XCLR
-    VCC_3.7
+    I2C2_SDA
+    N04371
+    GPS_PWR
+    SPI1_MOSI
     N17273
     N156752
-    N00208
+    SPI1_MISO
+    VCC33
     N156444
-    N198984
-    N155529
-    N155227
+    UART1_RXD
+    UART1_TXD
+    N30614
+    N166189
+    N163718
+    GND
+    N118206
+    N04100
+    N117953
     N1052570
 
 Checking Visible Unconnected Power Pins
