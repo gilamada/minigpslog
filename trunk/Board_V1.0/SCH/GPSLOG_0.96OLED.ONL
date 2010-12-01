@@ -1,6 +1,6 @@
 (PCB GPSLOG_0.96OLED
  (description
-  (timeStamp "2010 12 01 07 39 32")
+  (timeStamp "2010 12 01 12 41 48")
   (program "CAPTURE.EXE" (Version "10.5.0.b001 CIS"))
   (source "Original data from OrCAD/CAPTURE schematic")
   (title "")
@@ -1213,7 +1213,7 @@
     (property 
      (nettype S))
    (pins
-     U1-1 C3-1 U4-4))
+     U1-1 U4-4 C3-1))
   (net N00208
    (pins
      R4-1 U1-2))
@@ -1222,10 +1222,10 @@
      R6-1 R5-1 U1-3))
   (net USB_DP
    (pins
-     U3-33 R5-2))
+     R5-2 U3-33))
   (net USB_DM
    (pins
-     R4-2 U3-32))
+     U3-32 R4-2))
   (net N142354
    (pins
      CB2-1 U3-9 L1-2))
@@ -1234,7 +1234,7 @@
      R6-2 U3-29))
   (net N00449
    (pins
-     U1-6 U1-8 R7-1 U1-9 C1-1 U1-7))
+     U1-6 R7-1 U1-9 U1-8 U1-7 C1-1))
   (net N42563
    (pins
      U3-4 C6-2 Y2-2))
@@ -1245,14 +1245,14 @@
     (property 
      (nettype S))
    (pins
-     R9-2 R12-2 BT1-2 U3-47 U3-35 C10-2 C20-2 C19-2 L2-2
-     C6-1 C9-2 C7-1 C8-2 C21-2 U9-1 CB5-2 CB6-2 U3-44
-     C5-1 C2-1 C12-2 C4-1 J2-5 CB8-2 CB4-2 CB3-2 CB7-2
-     J2-4 U4-2 J3-4 CB1-2 U2-4 J1-4 U5-2 U1-5 R7-2
-     C1-2 U3-20 U3-23 C3-2 C11-2 C16-2 C18-2 C17-2 U7-30
-     U7-25 U7-24 U7-23 U7-22 U7-21 U7-29 R18-1 U7-12 U7-11
-     U7-8 U7-7 U7-1 U7-15 U7-16 U7-17 C24-1 C26-2 C25-2
-     C15-2 C23-2 U8-11 U8-9 U6-2))
+     R12-2 BT1-2 R9-2 U3-47 U5-2 C6-1 C7-1 U3-20 U3-35
+     U3-23 C5-1 C2-1 C12-2 C4-1 C11-2 U6-2 C20-2 C10-2
+     C19-2 L2-2 U1-5 R7-2 C1-2 C9-2 C8-2 J3-4 C21-2
+     U9-1 U3-44 CB8-2 CB4-2 CB6-2 CB5-2 CB3-2 CB7-2 C3-2
+     C23-2 U8-11 U7-30 U7-29 U7-25 U7-24 R18-1 C24-1 U7-23
+     U7-22 C16-2 C15-2 U7-15 U7-16 C18-2 C17-2 U7-12 U7-11
+     U7-8 U7-17 U7-21 U7-7 U7-1 C26-2 C25-2 U8-9 U4-2
+     CB1-2 U2-4 J2-5 J2-4 J1-4))
   (net N155227
    (pins
      U7-2 C13-2))
@@ -1273,13 +1273,13 @@
      U4-5 R9-1))
   (net UART1_RXD
    (pins
-     J3-2 U3-31))
+     U3-31 J3-2))
   (net N166189
    (pins
      U7-27 C24-2))
   (net UART1_TXD
    (pins
-     J3-3 U3-30))
+     U3-30 J3-3))
   (net OLED_RST
    (pins
      U7-14 U3-18))
@@ -1287,19 +1287,16 @@
     (property 
      (nettype S))
    (pins
-     R13-1 Q1-2 R11-1 C10-1 K1-2 C11-1 U6-3 U6-1))
+     U6-3 Q1-2 R13-1 R11-1 C10-1 K1-2 C11-1 U6-1))
   (net I2C1_SCL
    (pins
-     U9-6 R15-2 U3-42))
+     R15-2 U9-6 U3-42))
   (net I2C1_SDA
    (pins
-     U9-7 R14-2 U3-43))
+     R14-2 U9-7 U3-43))
   (net N198984
    (pins
      D1-2 U3-11))
-  (net GPS_PWR
-   (pins
-     R13-2 Q1-1 U3-38))
   (net N08932
    (pins
      C12-1 U6-4))
@@ -1319,19 +1316,19 @@
     (property 
      (nettype S))
    (pins
-     L2-1 U3-8 CB2-2))
+     CB2-2 L2-1 U3-8))
   (net N215744
    (pins
-     J3-1 Q1-3 C20-1 C19-1))
+     J3-1 C20-1 Q1-3 C19-1))
   (net VCC33
     (property 
      (nettype S))
    (pins
-     R8-1 U8-4 U8-13 U2-7 C8-1 U6-5 C9-1 R16-1 R17-1
-     R10-1 CB4-1 CB3-1 CB8-1 CB7-1 D2-2 CB6-1 C21-1 U9-4
-     U9-3 R14-1 R15-1 CB5-1 CB1-1 U2-8 U2-3 J1-1 U3-48
-     U3-36 U3-24 L1-1 U8-2 U7-28 U7-6 C16-1 C15-1 U7-9
-     C18-1 C17-1 U7-10 C26-1 C25-1))
+     R8-1 U8-4 U8-13 R16-1 R17-1 U8-2 R14-1 R15-1 J1-1
+     U3-48 U3-36 U3-24 C9-1 U6-5 C8-1 L1-1 R10-1 D2-2
+     CB4-1 CB3-1 CB8-1 CB7-1 CB6-1 CB5-1 C21-1 U9-3 U9-4
+     U7-6 C16-1 C15-1 C18-1 C17-1 U7-28 C26-1 C25-1 U7-10
+     U7-9 U2-8 CB1-1 U2-7 U2-3))
   (net CHRG#
    (pins
      U4-1 U3-13))
@@ -1340,7 +1337,7 @@
      BT1-1 U4-3 K1-1))
   (net EOC
    (pins
-     U9-2 U3-46))
+     U3-46 U9-2))
   (net XCLR
    (pins
      U9-8 U3-45))
@@ -1353,18 +1350,18 @@
   (net SPI1_CLK
    (pins
      U3-15 U2-6))
-  (net SPI2_MOSI
-   (pins
-     U7-19 U3-28))
   (net SPI1_CS
    (pins
      U3-14 U2-1))
+  (net SPI2_MOSI
+   (pins
+     U3-28 U7-19))
   (net SPI2_SCK
    (pins
-     U7-18 U3-26))
+     U3-26 U7-18))
   (net SPI2_CS
    (pins
-     U7-13 U3-25))
+     U3-25 U7-13))
   (net N1052570
    (pins
      R8-2 D1-1))
@@ -1374,21 +1371,24 @@
   (net N266013
    (pins
      U3-27 TP2-1))
+  (net GPS_PWR
+   (pins
+     U3-38 Q1-1 R13-2))
   (net SWDIO
    (pins
-     J1-2 U3-34))
+     U3-34 J1-3))
   (net SWCLK
    (pins
-     U3-37 J1-3))
+     U3-37 J1-2))
   (net N17273
    (pins
      Y1-2 C2-2 U3-5))
-  (net N117953
-   (pins
-     U8-8 C22-1))
   (net N17641
    (pins
      Y1-1 C4-2 U3-6))
+  (net N117953
+   (pins
+     U8-8 C22-1))
   (net N118206
    (pins
      U8-12 C22-2))
@@ -1400,11 +1400,11 @@
      C5-2 R10-2 U3-7))
   (net I2C2_SDA
    (pins
-     U3-22 R17-2 U8-16))
+     R17-2 U8-16 U3-22))
   (net I2C2_SCL
    (pins
      U3-21 R16-2 U8-1))
   (net DRDY
    (pins
-     U3-19 U8-15)))
+     U8-15 U3-19)))
 )
