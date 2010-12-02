@@ -30,66 +30,67 @@ Reporting Globals
     AGND
 
 Reporting Net Names
-    N17273
-    SPI1_MOSI
-    SPI2_MOSI
-    USB_DM
-    I2C1_SCL
-    SPI1_MISO
-    SPI2_SCK
-    I2C1_SDA
-    DRDY
-    AGND
-    SPI2_CS
     AD_V3.7
-    SPI1_CLK
-    I2C2_SDA
-    N00208
-    VCC_3.7
-    N04371
-    VCC5
-    SWCLK
-    N23456
+    SPI2_MOSI
+    KEY_OK
     I2C2_SCL
-    SPI1_CS
-    N42563
-    N30614
-    EOC
-    N156752
-    N00449
     N08932
+    I2C1_SCL
+    DRDY
+    XCLR
+    N155529
+    UART1_TXD
+    N142354
+    N117953
+    N23456
+    UART1_RXD
+    GPS_PWR
     OLED_RST
+    CHRG#
+    N163718
+    SPI1_MISO
+    N166189
+    USB_DP
+    N17641
+    KEY_UP
+    I2C1_SDA
+    N42563
+    VCC5
+    AGND
+    KEY_DOWN
+    GND
+    VCC_3.7
+    N17273
+    EOC
+    N42729
+    N30614
+    USB_DM
+    SPI1_MOSI
+    N04371
+    SPI1_CLK
+    N04100
+    SPI1_CS
+    N156752
+    N156444
+    N00208
+    SWDIO
+    N155227
+    N215744
+    N00449
+    N266013
+    I2C2_SDA
+    N263677
+    SWCLK
+    SPI2_SCK
+    SPI2_CS
     USB_EN
     N00217
-    N215744
-    UART1_TXD
-    N166189
-    UART1_RXD
     N118461
+    N306979
     N118206
-    USB_DP
-    CHRG#
-    SWDIO
-    N117953
-    N42729
-    KEY_UP
-    N266013
-    KEY_OK
-    N263677
-    KEY_DOWN
-    N142354
-    XCLR
-    N156444
-    N155529
-    GND
-    VCC33
-    N04100
     N198984
-    N155227
-    N17641
-    N163718
+    VCC33
     N1052570
-    GPS_PWR
 
 Checking Visible Unconnected Power Pins
 
