@@ -1,0 +1,384 @@
+(PCB OLED_12864
+ (description
+  (timeStamp "2010 12 02 16 22 10")
+  (program "CAPTURE.EXE" (Version "10.5.0.b001 CIS"))
+  (source "Original data from OrCAD/CAPTURE schematic")
+  (title "")
+  (date "December 03, 2010")
+  (document "F:\\Ä£¿é\\GPS¹ì¼£¼ÇÂ¼ÒÇ\\BOARD_V1.0\\SCH\\OLED_12864.DSN")
+  (revision "")
+  (organization "")
+  (address1 "")
+  (address2 "")
+  (address3 "")
+  (address4 "")
+  (partvaluecombine "{Value}")
+  (pcbfootprintcombine "{PCB Footprint}"))
+ (structure )
+ (placement
+  (component "CAP-1"
+   (place C1
+    (property 
+     ("PCB Footprint" C0603)
+     (timestamp 000252BF)
+     ("Source Package" "CAP-1")
+     (Value 1uF)))
+   (place C2
+    (property 
+     ("PCB Footprint" C0603)
+     (timestamp 0002598C)
+     ("Source Package" "CAP-1")
+     (Value 1uF)))
+   (place C3
+    (property 
+     ("PCB Footprint" C0603)
+     (timestamp 0002A08C)
+     ("Source Package" "CAP-1")
+     (Value 0.1u)))
+   (place C4
+    (property 
+     ("PCB Footprint" C0603)
+     (timestamp 0002A1B6)
+     ("Source Package" "CAP-1")
+     (Value 1u)))
+   (place C5
+    (property 
+     ("PCB Footprint" C0603)
+     (timestamp 0002AC7A)
+     ("Source Package" "CAP-1")
+     (Value 0.1u)))
+   (place C6
+    (property 
+     ("PCB Footprint" C0603)
+     (timestamp 0002AC8A)
+     ("Source Package" "CAP-1")
+     (Value 1u)))
+   (place C7
+    (property 
+     ("PCB Footprint" 0805)
+     (timestamp 000283FA)
+     ("Source Package" "CAP-1")
+     (Value 2.2uF)))
+   (place C8
+    (property 
+     ("PCB Footprint" C0603)
+     (timestamp 0002C0FD)
+     ("Source Package" "CAP-1")
+     (Value 0.1u)))
+   (place C9
+    (property 
+     ("PCB Footprint" 0805)
+     (timestamp 0002C10D)
+     ("Source Package" "CAP-1")
+     (Value 2.2uF))))
+  (component OLED_0.96
+   (place U1
+    (property 
+     ("PCB Footprint" "OLED-0.96")
+     (timestamp 0003C6BB)
+     ("Source Package" OLED_0.96)
+     (Value OLED_0.96))))
+  (component CON8
+   (place J1
+    (property 
+     ("PCB Footprint" "SIP-8/2.54MM")
+     (timestamp 0004E31F)
+     ("Source Package" CON8)
+     (Value CON8)))
+   (place J2
+    (property 
+     ("PCB Footprint" "STP-8/2MM")
+     (timestamp 0004F859)
+     ("Source Package" CON8)
+     (Value CON8))))
+  (component "R-3P"
+   (place D/C
+    (property 
+     ("PCB Footprint" "R0603-3P")
+     (timestamp 0004DF7D)
+     ("Source Package" "R-3P")
+     (Value "R-3P")))
+   (place BS0
+    (property 
+     ("PCB Footprint" "R0603-3P")
+     (timestamp 0004DBC0)
+     ("Source Package" "R-3P")
+     (Value "R-3P")))
+   (place BS1
+    (property 
+     ("PCB Footprint" "R0603-3P")
+     (timestamp 0004DB63)
+     ("Source Package" "R-3P")
+     (Value "R-3P")))
+   (place VCC
+    (property 
+     ("PCB Footprint" "R0603-3P")
+     (timestamp 0004EC85)
+     ("Source Package" "R-3P")
+     (Value "R-3P"))))
+  (component R
+   (place R5
+    (property 
+     ("PCB Footprint" R0603)
+     (timestamp 00027530)
+     ("Source Package" R)
+     (Value 390k)))))
+ (library
+  (image "R-3P"
+   (property 
+    (sourcelib F:\\Ä£¿é\\GPS¹ì¼£¼ÇÂ¼ÒÇ\\MYLIB\\SCH\\MYLIB.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image OLED_0.96
+   (property 
+    (sourcelib F:\\Ä£¿é\\GPS¹ì¼£¼ÇÂ¼ÒÇ\\MYLIB\\SCH\\MYLIB.OLB))
+   (pin 999 1
+    (property 
+     (pinname GND)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname C2P)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname C2N)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname C1P)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname C1N)
+     (pintype 4)))
+   (pin 999 6
+    (property 
+     (pinname VBAT)
+     (pintype 4)))
+   (pin 999 7
+    (property 
+     (pinname NC)
+     (pintype 4)))
+   (pin 999 8
+    (property 
+     (pinname VSS)
+     (pintype 4)))
+   (pin 999 9
+    (property 
+     (pinname VDD)
+     (pintype 4)))
+   (pin 999 10
+    (property 
+     (pinname BS0)
+     (pintype 4)))
+   (pin 999 11
+    (property 
+     (pinname BS1)
+     (pintype 4)))
+   (pin 999 12
+    (property 
+     (pinname BS2)
+     (pintype 4)))
+   (pin 999 13
+    (property 
+     (pinname CS#)
+     (pintype 4)))
+   (pin 999 14
+    (property 
+     (pinname RES#)
+     (pintype 4)))
+   (pin 999 15
+    (property 
+     (pinname D/C#)
+     (pintype 4)))
+   (pin 999 16
+    (property 
+     (pinname R/W#)
+     (pintype 4)))
+   (pin 999 17
+    (property 
+     (pinname E/RD#)
+     (pintype 4)))
+   (pin 999 18
+    (property 
+     (pinname D0)
+     (pintype 4)))
+   (pin 999 19
+    (property 
+     (pinname D1)
+     (pintype 4)))
+   (pin 999 20
+    (property 
+     (pinname D2)
+     (pintype 4)))
+   (pin 999 21
+    (property 
+     (pinname D3)
+     (pintype 4)))
+   (pin 999 22
+    (property 
+     (pinname D4)
+     (pintype 4)))
+   (pin 999 23
+    (property 
+     (pinname D5)
+     (pintype 4)))
+   (pin 999 24
+    (property 
+     (pinname D6)
+     (pintype 4)))
+   (pin 999 25
+    (property 
+     (pinname D7)
+     (pintype 4)))
+   (pin 999 26
+    (property 
+     (pinname IREF)
+     (pintype 4)))
+   (pin 999 27
+    (property 
+     (pinname VCOMH)
+     (pintype 4)))
+   (pin 999 28
+    (property 
+     (pinname VCC)
+     (pintype 4)))
+   (pin 999 29
+    (property 
+     (pinname VLSS)
+     (pintype 4)))
+   (pin 999 30
+    (property 
+     (pinname GND)
+     (pintype 4))))
+  (image R
+   (property 
+    (sourcelib F:\\Ä£¿é\\MYLIB\\SCH\\MYLIB.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image "CAP-1"
+   (property 
+    (sourcelib F:\\Ä£¿é\\MYLIB\\SCH\\MYLIB.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4))))
+  (image CON8
+   (property 
+    (sourcelib E:\\ORCAD\\ORCAD_10.5\\TOOLS\\CAPTURE\\LIBRARY\\CONNECTOR.OLB))
+   (pin 999 1
+    (property 
+     (pinname 1)
+     (pintype 4)))
+   (pin 999 2
+    (property 
+     (pinname 2)
+     (pintype 4)))
+   (pin 999 3
+    (property 
+     (pinname 3)
+     (pintype 4)))
+   (pin 999 4
+    (property 
+     (pinname 4)
+     (pintype 4)))
+   (pin 999 5
+    (property 
+     (pinname 5)
+     (pintype 4)))
+   (pin 999 6
+    (property 
+     (pinname 6)
+     (pintype 4)))
+   (pin 999 7
+    (property 
+     (pinname 7)
+     (pintype 4)))
+   (pin 999 8
+    (property 
+     (pinname 8)
+     (pintype 4)))))
+ (network
+  (net D/C#
+   (pins
+     J2-5 D/C-1 J1-5))
+  (net VCC
+   (pins
+     C8-1 U1-28 C9-1 VCC-2))
+  (net VIN
+   (pins
+     VCC-3 J1-8 J2-8))
+  (net GND
+    (property 
+     (nettype S))
+   (pins
+     BS0-3 D/C-3 BS1-3 J1-2 J2-2 U1-30 U1-29 C9-2 C8-2
+     C7-1 R5-1 C6-2 C5-2 C4-2 U1-24 U1-22 U1-21 U1-17
+     U1-16 U1-8 U1-7 U1-1 U1-12 U1-23 C3-2 U1-25))
+  (net N155227
+   (pins
+     U1-2 C1-2))
+  (net N155529
+   (pins
+     U1-3 C1-1))
+  (net N156444
+   (pins
+     U1-4 C2-2))
+  (net N156752
+   (pins
+     U1-5 C2-1))
+  (net N163718
+   (pins
+     U1-26 R5-2))
+  (net N166189
+   (pins
+     U1-27 C7-2))
+  (net VCC33
+    (property 
+     (nettype S))
+   (pins
+     BS0-1 BS1-1 J1-1 J2-1 C6-1 C5-1 U1-9 U1-6 C4-1
+     C3-1 VCC-1))
+  (net BS0
+   (pins
+     BS0-2 U1-10))
+  (net CS
+   (pins
+     J1-3 J2-3 U1-13))
+  (net SCLK
+   (pins
+     J2-6 U1-18 J1-6))
+  (net DATA
+   (pins
+     J2-7 J1-7 U1-19))
+  (net RESET
+   (pins
+     J1-4 J2-4 U1-14))
+  (net BS1
+   (pins
+     BS1-2 U1-11))
+  (net D/C
+   (pins
+     D/C-2 U1-15)))
+)
