@@ -98,18 +98,34 @@
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -4 -30 27 396 28 524"))
+        (Placement "44 2 3 -1 -1 -4 -30 197 566 41 537"))
       (Tab 0))
     (Doc
       (Type "COrPartDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -1 -1 27 1149 223 687")
+        (Placement "44 0 1 -1 -1 -4 -30 27 1149 223 687")
         (PackageScroll "0 0")
         (PackageZoom "1")
         (PartPackage "Part")
         (Scroll "2162 765")
         (Zoom "497"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\MYLIB\SCH\MYLIB.OLB")
-      (Package "SW_POWER")))
+      (Package "SW_POWER"))
+    (Doc
+      (Type "TextFile")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 44 1304 58 593"))
+      (Path "f:\Ä£¿é\gps¹ì¼£¼ÇÂ¼ÒÇ\board_v1.0\sch\gpslog_0.96oled.drc")
+      (Scroll "127"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 198 1458 180 715")
+        (Scroll "863 0")
+        (Zoom "150")
+        (Occurrence "/"))
+      (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED.DSN")
+      (Schematic "GPS")
+      (Page "gpslog")))
   (MPSSessionName "Administrator")
   (LastUsedLibraryBrowseDirectory "E:\OrCAD\OrCAD_10.5\tools\capture\library"))
