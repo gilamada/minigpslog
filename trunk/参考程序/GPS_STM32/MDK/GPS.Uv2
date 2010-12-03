@@ -1,0 +1,298 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (DEBUG_FLASH), 0x0004 // Tools: 'ARM-ADS'
+Target (ISP_RAM), 0x0004 // Tools: 'ARM-ADS'
+
+Group (CM3)
+Group (StartUp)
+Group (StdPeriph_Driver)
+Group (StdPeriph_Lib)
+Group (BSP)
+Group (APP)
+Group (Driver)
+Group (GUI)
+Group (FATFS)
+Group (USB_DISK)
+Group (USBLIB)
+
+File 1,1,<..\CM3\core_cm3.c><core_cm3.c>
+File 1,1,<..\CM3\system_stm32f10x.c><system_stm32f10x.c>
+File 1,5,<..\CM3\system_stm32f10x.h><system_stm32f10x.h>
+File 2,2,<..\CM3\startup\arm\startup_stm32f10x_hd.s><startup_stm32f10x_hd.s>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\misc.c><misc.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_adc.c><stm32f10x_adc.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_bkp.c><stm32f10x_bkp.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_can.c><stm32f10x_can.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_cec.c><stm32f10x_cec.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_crc.c><stm32f10x_crc.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_dac.c><stm32f10x_dac.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c><stm32f10x_dbgmcu.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_dma.c><stm32f10x_dma.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c><stm32f10x_exti.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c><stm32f10x_flash.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_fsmc.c><stm32f10x_fsmc.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c><stm32f10x_gpio.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_i2c.c><stm32f10x_i2c.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_iwdg.c><stm32f10x_iwdg.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_pwr.c><stm32f10x_pwr.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c><stm32f10x_rcc.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_rtc.c><stm32f10x_rtc.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_sdio.c><stm32f10x_sdio.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_spi.c><stm32f10x_spi.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_tim.c><stm32f10x_tim.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c><stm32f10x_usart.c>
+File 3,1,<..\STM32F10x_StdPeriph_Driver\src\stm32f10x_wwdg.c><stm32f10x_wwdg.c>
+File 4,4,<..\STM32F10x_StdPeriph_Driver\STM32F10x_V330.lib><STM32F10x_V330.lib>
+File 5,1,<..\BSP\BSP.c><BSP.c>
+File 5,5,<..\BSP\BSP.h><BSP.h>
+File 6,5,<..\APP\stm32f10x_it.h><stm32f10x_it.h>
+File 6,5,<..\APP\config.h><config.h>
+File 6,1,<..\APP\main.c><main.c>
+File 6,5,<..\APP\stm32f10x_conf.h><stm32f10x_conf.h>
+File 6,1,<..\APP\stm32f10x_it.c><stm32f10x_it.c>
+File 7,1,<..\Driver\printp.c><printp.c>
+File 7,5,<..\Driver\printp.h><printp.h>
+File 7,1,<..\Driver\RTC_time.c><RTC_time.c>
+File 7,5,<..\Driver\RTC_time.h><RTC_time.h>
+File 7,1,<..\Driver\Usart.c><Usart.c>
+File 7,5,<..\Driver\Usart.h><Usart.h>
+File 7,1,<..\Driver\LEDS.c><LEDS.c>
+File 7,5,<..\Driver\LEDS.h><LEDS.h>
+File 7,5,<..\Driver\gps.h><gps.h>
+File 7,1,<..\Driver\gps.c><gps.c>
+File 7,1,<..\Driver\sdcard.c><sdcard.c>
+File 7,5,<..\Driver\sdcard.h><sdcard.h>
+File 8,5,<..\GUI\ASCII.h><ASCII.h>
+File 8,5,<..\GUI\Chinese.h><Chinese.h>
+File 8,1,<..\GUI\GUI.C><GUI.C>
+File 8,5,<..\GUI\GUI.H><GUI.H>
+File 8,1,<..\GUI\LCDDRIVER.C><LCDDRIVER.C>
+File 8,5,<..\GUI\LCDDRIVER.H><LCDDRIVER.H>
+File 9,1,<..\fatfs\diskio.c><diskio.c>
+File 9,5,<..\fatfs\diskio.h><diskio.h>
+File 9,1,<..\fatfs\ff.c><ff.c>
+File 9,5,<..\fatfs\ff.h><ff.h>
+File 10,1,<..\USB\USB_DISK\src\hw_config.c><hw_config.c>
+File 10,1,<..\USB\USB_DISK\src\mass_mal.c><mass_mal.c>
+File 10,1,<..\USB\USB_DISK\src\memory.c><memory.c>
+File 10,1,<..\USB\USB_DISK\src\msd.c><msd.c>
+File 10,1,<..\USB\USB_DISK\src\scsi_data.c><scsi_data.c>
+File 10,1,<..\USB\USB_DISK\src\usb_bot.c><usb_bot.c>
+File 10,1,<..\USB\USB_DISK\src\usb_desc.c><usb_desc.c>
+File 10,1,<..\USB\USB_DISK\src\usb_endp.c><usb_endp.c>
+File 10,1,<..\USB\USB_DISK\src\usb_istr.c><usb_istr.c>
+File 10,1,<..\USB\USB_DISK\src\usb_prop.c><usb_prop.c>
+File 10,1,<..\USB\USB_DISK\src\usb_pwr.c><usb_pwr.c>
+File 10,1,<..\USB\USB_DISK\src\usb_scsi.c><usb_scsi.c>
+File 11,1,<..\USB\usblib\usb_core.c><usb_core.c>
+File 11,1,<..\USB\usblib\usb_init.c><usb_init.c>
+File 11,1,<..\USB\usblib\usb_int.c><usb_int.c>
+File 11,1,<..\USB\usblib\usb_mem.c><usb_mem.c>
+File 11,1,<..\USB\usblib\usb_regs.c><usb_regs.c>
+
+
+Options 1,0,0  // Target 'DEBUG_FLASH'
+ Device (STM32F103VC)
+ Vendor (STMicroelectronics)
+ Cpu (IRAM(0x20000000-0x2000BFFF) IROM(0x8000000-0x803FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\ST\STM32F10x.s" ("STM32 Startup Code"))
+ FlashDR (UL2CM3(-O14 -S0 -C0 -N00("ARM Cortex-M3") -D00(1BA00477) -L00(4) -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F10x_512 -FS08000000 -FL040000))
+ DevID (4226)
+ Rgf (stm32f10x_lib.h)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ST\STM32F10x\)
+ OrgReg (ST\STM32F10x\)
+ TgStat=16
+ OutDir (.\Debug_FLASH\)
+ OutName (STM32F103)
+ GenApp=1
+ GenLib=0
+ GenHex=1
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 243,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,192,0,0 }
+ OCMADSIROM { 1,0,0,0,8,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,8,0,0,4,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,0,192,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (USE_STDPERIPH_DRIVER,STM32F10X_HD,USE_STM3210E_EVAL)
+ ADSCUDEF ()
+ ADSCINCD (..\APP;..\CM3;..\STM32F10x_StdPeriph_Driver\inc;..\BSP;..\Driver;..\GUI;..\fatfs;..\USB\usblib;..\USB\USB_DISK\inc)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x08000000)
+ ADSLDDA (0x20000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pSTM32F103VC)(SARMCM3.DLL)()(TARMSTM.DLL)(-pSTM32F103VC)
+  OPTDBG 48126,8,()()()()()()()()()() (Segger\JL2CM3.dll)()()()
+ FLASH1 { 9,0,0,0,1,0,0,0,7,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (Segger\JL2CM3.dll)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 2,0,0  // Target 'ISP_RAM'
+ Device (STM32F103VC)
+ Vendor (STMicroelectronics)
+ Cpu (IRAM(0x20000000-0x2000BFFF) IROM(0x8000000-0x803FFFF) CLOCK(8000000) CPUTYPE("Cortex-M3"))
+ FlashUt ()
+ StupF ("STARTUP\ST\STM32F10x.s" ("STM32 Startup Code"))
+ FlashDR (UL2CM3(-O14 -S0 -C0 -N00("ARM Cortex-M3") -D00(1BA00477) -L00(4) -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F10x_512 -FS08000000 -FL040000))
+ DevID (4226)
+ Rgf (stm32f10x_lib.h)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg (ST\STM32F10x\)
+ OrgReg (ST\STM32F10x\)
+ TgStat=16
+ OutDir (.\ISP_RAM\)
+ OutName (STM32F103)
+ GenApp=1
+ GenLib=0
+ GenHex=1
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 243,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M3")
+ RVDEV ()
+ ADSTFLGA { 0,12,0,2,99,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,32,0,192,0,0 }
+ OCMADSIROM { 1,0,0,0,8,0,0,4,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,2,0,32,0,136,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,144,0,32,0,48,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN (USE_STDPERIPH_DRIVER,STM32F10X_MD,VECT_TAB_RAM)
+ ADSCUDEF ()
+ ADSCINCD (..\APP;..\CM3;..\STM32F10x_StdPeriph_Driver\inc;..\BSP;..\Driver;..\GUI)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x08000000)
+ ADSLDDA (0x20000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)()(DARMSTM.DLL)(-pSTM32F103VC)(SARMCM3.DLL)()(TARMSTM.DLL)(-pSTM32F103VC)
+  OPTDBG 49150,7,()()()()()()()()()(.\RAM.ini) (Segger\JL2CM3.dll)()()()
+ FLASH1 { 9,0,0,0,1,0,0,0,7,16,0,0,0,0,0,0,0,0,0,0 }
+ FLASH2 (Segger\JL2CM3.dll)
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
+Options 1,4,28  // File 'STM32F10x_V330.lib'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+EndOpt
+
+Options 2,4,28  // File 'STM32F10x_V330.lib'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=0
+ AlwaysBuild=2
+ GenAsm=2
+ AsmAsm=2
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+EndOpt
+
