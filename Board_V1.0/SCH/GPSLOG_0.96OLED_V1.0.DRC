@@ -8,8 +8,89 @@ Checking Electrical Rules
 
 Checking for Unconnected Nets
 
+Checking Off-Page Connections
+
+Checking Pin to Port Connections
+
 Checking for Invalid References
 
 Checking for Duplicate References
+
+Reporting Off-Grid Objects
+
+Reporting Ports
+
+Reporting Off-Page Connections
+
+Reporting Globals
+    VCC33
+    VCC5
+    VCC_3.7
+    GND
+    AGND
+
+Reporting Net Names
+    N384038
+    N385754
+    CHRG#
+    AGND
+    KEY_OK
+    I2C2_SCL
+    N04371
+    SPI1_CS
+    AD_V3.7
+    TF_CS
+    N23456
+    VCC_3.7
+    SPI1_CLK
+    SWCLK
+    SPI1_MISO
+    N42563
+    N215744
+    SPI2_SCK
+    N42729
+    N00208
+    SWDIO
+    GND
+    I2C1_SCL
+    I2C1_SDA
+    KEY_DOWN
+    GPS_PWR
+    N00449
+    N08932
+    N306979
+    N353456
+    USB_EN
+    VCC5
+    EOC
+    N00217
+    N17641
+    OLED_RST
+    N117953
+    XCLR
+    N263677
+    USB_DP
+    SPI1_MOSI
+    N17273
+    DRDY
+    OLED_CS
+    I2C2_SDA
+    VCC33
+    UART1_RXD
+    UART1_TXD
+    N118461
+    N118206
+    N142354
+    SPI2_MOSI
+    N04100
+    KEY_UP
+    TF_PWR
+    GPS_EN
+    USB_DM
+    N1052570
+
+Checking Visible Unconnected Power Pins
+
+Checking Misleading Tap connection
 
 Check Bus width mismatch
