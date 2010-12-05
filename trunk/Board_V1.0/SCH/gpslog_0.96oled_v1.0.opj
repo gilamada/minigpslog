@@ -9,18 +9,18 @@
     (CompileFileAddedOrDeleted "x")
     (DRC_Scope "0")
     (DRC_Action "0")
-    (DRC_Create_Warnings "FALSE")
-    (DRC_Check_Ports "FALSE")
-    (DRC_Check_Off-Page_Connectors "FALSE")
+    (DRC_Create_Warnings "TRUE")
+    (DRC_Check_Ports "TRUE")
+    (DRC_Check_Off-Page_Connectors "TRUE")
     (DRC_Identical_References "TRUE")
     (DRC_Type_Mismatch "TRUE")
-    (DRC_Report_Ports_and_Off-page_Connectors "FALSE")
+    (DRC_Report_Ports_and_Off-page_Connectors "TRUE")
     (DRC_SDT_Compatibility "FALSE")
-    (DRC_Report_Off-grid_Objects "FALSE")
+    (DRC_Report_Off-grid_Objects "TRUE")
     (DRC_Check_Unconnected_Nets "TRUE")
-    (DRC_Check_for_Misleading_TAP "FALSE")
-    (DRC_Visible_Power_pins "FALSE")
-    (DRC_Report_Netnames "FALSE")
+    (DRC_Check_for_Misleading_TAP "TRUE")
+    (DRC_Visible_Power_pins "TRUE")
+    (DRC_Report_Netnames "TRUE")
     (DRC_View_Output "FALSE")
     (DRC_Report_File
        "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED_V1.0.DRC")
@@ -47,6 +47,14 @@
       (Type "Report")))
   (Folder "Referenced Projects")
   (PartMRUSelector
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\MYLIB\SCH\MYLIB.OLB")
+      (DeviceIndex "0"))
+    (CON5
+      (FullPartName "CON5.Normal")
+      (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
+      (DeviceIndex "0"))
     ("CONN RCPT 6"
       (FullPartName "CONN RCPT 6.Normal")
       (LibraryName "E:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CONNECTOR.OLB")
@@ -62,15 +70,16 @@
     (Doc
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 0 1 -1 -1 -4 -30 0 200 0 387"))
+        (Placement "44 2 3 -1 -1 -4 -30 0 200 0 387"))
       (Tab 0))
     (Doc
       (Type "COrSchematicDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -4 -30 44 525 58 479")
-        (Scroll "0 0")
-        (Zoom "75")
+        (Placement "44 0 1 -1 -1 -4 -30 88 1214 116 584")
+        (Scroll "1719 967")
+        (Zoom "260")
         (Occurrence "/"))
       (Path "F:\Ä£¿é\GPS¹ì¼£¼ÇÂ¼ÒÇ\BOARD_V1.0\SCH\GPSLOG_0.96OLED_V1.0.DSN")
       (Schematic "GPS")
-      (Page "gpslog"))))
+      (Page "gpslog")))
+  (MPSSessionName "Jason"))
